@@ -37,25 +37,29 @@ namespace Hagyma
             // 
             // textBoxNewProject
             // 
-            this.textBoxNewProject.Location = new System.Drawing.Point(12, 25);
+            this.textBoxNewProject.Location = new System.Drawing.Point(14, 29);
+            this.textBoxNewProject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNewProject.Name = "textBoxNewProject";
-            this.textBoxNewProject.Size = new System.Drawing.Size(245, 20);
+            this.textBoxNewProject.Size = new System.Drawing.Size(285, 23);
             this.textBoxNewProject.TabIndex = 0;
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(12, 51);
+            this.buttonOk.Location = new System.Drawing.Point(14, 59);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(125, 23);
+            this.buttonOk.Size = new System.Drawing.Size(146, 27);
             this.buttonOk.TabIndex = 1;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonOk_MouseClick);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(143, 51);
+            this.buttonCancel.Location = new System.Drawing.Point(167, 59);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(114, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(133, 27);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -63,21 +67,23 @@ namespace Hagyma
             // labelNewProject
             // 
             this.labelNewProject.AutoSize = true;
-            this.labelNewProject.Location = new System.Drawing.Point(13, 6);
+            this.labelNewProject.Location = new System.Drawing.Point(15, 7);
+            this.labelNewProject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNewProject.Name = "labelNewProject";
-            this.labelNewProject.Size = new System.Drawing.Size(170, 13);
+            this.labelNewProject.Size = new System.Drawing.Size(189, 15);
             this.labelNewProject.TabIndex = 3;
             this.labelNewProject.Text = "Enter the name of the new project:";
             // 
             // NewProjectView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 83);
+            this.ClientSize = new System.Drawing.Size(314, 96);
             this.Controls.Add(this.labelNewProject);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.textBoxNewProject);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NewProjectView";
             this.Text = "New project";
             this.ResumeLayout(false);

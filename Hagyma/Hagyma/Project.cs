@@ -13,6 +13,12 @@ namespace Hagyma
         protected SqliteConnection sqliteConnection;
 
 
+        static NewProject(string _name)
+        {
+            // Create project
+        }
+
+
         public Project(string _name)
         {
             this.name = _name;

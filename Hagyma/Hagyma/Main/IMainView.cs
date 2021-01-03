@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hagyma
 {
-    public delegate void NewProjectClicked(object sender, EventArgs e);
+    
 
     public interface IViewMain : IView
     {
-        public event NewProjectClicked newProjectClicked;
+        public delegate void NewProjectClicked(object sender, EventArgs e);
+        // public event NewProjectClicked newProjectClicked;
 
         void test();
     }
