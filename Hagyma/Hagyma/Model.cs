@@ -14,5 +14,15 @@ namespace Hagyma
         {
             this.project = _project;
         }
+
+        public Project getProject()
+        {
+            return this.project;
+        }
+
+        public void setProject(Project _project)
+        {
+            this.project = _project;
+        }
     }
 }

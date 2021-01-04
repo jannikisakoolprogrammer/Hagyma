@@ -39,6 +39,17 @@ namespace Hagyma
             // Show dialog to create a new project.
             NewProjectPresenter newProjectPresenter = new NewProjectPresenter(this);
             newProjectPresenter.run();
+
+            // Set project if one was created just now.
+            Project localProject = newProjectPresenter.getProject();
+            if (localProject != null)
+            {
+                // Set project in MainModel so we can work with it later.
+                this.model.setProject(localProject);
+
+                // TODO:  Enable certain controls now.
+            }
+
         }
     }
 }

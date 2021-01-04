@@ -12,5 +12,10 @@ namespace Hagyma
             base(_project)
         {
         }
+
+        public void createProject(string _projectToCreatePath)
+        {
+            this.project = Project.NewProject(_projectToCreatePath);
+        }
     }
 }

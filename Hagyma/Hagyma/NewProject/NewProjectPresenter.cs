@@ -13,7 +13,7 @@ namespace Hagyma
 
         protected string projectToCreatePath;
         protected string projectsDirPath;
-        protected string project_name;
+        protected string projectName;
 
         public NewProjectPresenter(Presenter _parentPresenter) :
             base(_parentPresenter)
@@ -37,7 +37,7 @@ namespace Hagyma
             bool result = true;
 
             // Fetch user input.
-            this.project_name = this.newProjectView.getTextBoxNewProject().Text;
+            this.projectName = this.newProjectView.getTextBoxNewProject().Text;
 
             this.projectsDirPath = System.IO.Path.Combine(
                 System.IO.Directory.GetCurrentDirectory(),
@@ -45,7 +45,7 @@ namespace Hagyma
 
             this.projectToCreatePath = System.IO.Path.Combine(
                 this.projectsDirPath,
-                this.project_name);
+                this.projectName);
 
             // Validate user input
             result = this.validateProjectName();
@@ -65,12 +65,12 @@ namespace Hagyma
             this.newProjectView.Hide();
 
             // Create project.
-            Project.NewProject(this.projectToCreatePath);
+            this.newProjectModel.createProject(this.projectToCreatePath);            
         }
 
         protected bool validateProjectName()
         {
-            if (this.project_name == "")
+            if (this.projectName == "")
             {
                 System.Windows.Forms.MessageBox.Show(
                     "Kérem szépen írj egy projektnevet.",
@@ -113,6 +113,11 @@ namespace Hagyma
                 }
             }
             return true;
+        }
+
+        public Project getProject()
+        {
+            return this.newProjectModel.getProject();
         }
     }
 }
