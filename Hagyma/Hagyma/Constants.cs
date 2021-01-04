@@ -9,7 +9,7 @@ namespace Hagyma
 {
     public class Constants
     {
-        public const string database_dir = "database";
+        public const string database_dir = "database"; // Obsolete.
         public const string database_file = "db.sqlite";
 
         // Settings and queries for table "page"

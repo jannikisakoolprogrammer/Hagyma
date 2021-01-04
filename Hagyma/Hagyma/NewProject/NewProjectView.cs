@@ -22,7 +22,7 @@ namespace Hagyma
 
         private void buttonOk_MouseClick(object _sender, MouseEventArgs _e)
         {
-            if (_sender == null)
+            if (_sender != null)
             {
                 this.buttonOkClicked(_sender, _e);
             }

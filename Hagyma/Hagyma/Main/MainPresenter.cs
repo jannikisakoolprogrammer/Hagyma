@@ -24,7 +24,7 @@ namespace Hagyma
         [STAThread]
         static void Main()
         {
-
+            Startup.CreateProjectsDirectory();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

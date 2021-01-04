@@ -9,33 +9,60 @@ namespace Hagyma
 {
     public class Project
     {
-        protected string name;
+        protected string path;
+        protected string dbPath;
         protected SqliteConnection sqliteConnection;
 
-
-        static NewProject(string _name)
+        
+        public static Project NewProject(string _path)
         {
             // Create project
+            return new Project(_path);
         }
+        
 
 
-        public Project(string _name)
+        public Project(string _path)
         {
-            this.name = _name;
+            this.path = _path;
+            this.dbPath = System.IO.Path.Combine(
+                this.path,
+                Constants.database_file);
 
-            this.createDB();
+            // Create directory.
+            this.createProjectDirectory();
+
+            // Create DB in directory.
+            this.createConnection();
+
+            // Connect to db.
             this.connect();
-            this.createTables();
+
+            // Create tables.
+            this.createTables();            
         }
 
-        protected void createDB()
+        protected void createProjectDirectory()
         {
-            this.sqliteConnection = new SqliteConnection(String.Format("Data Source = {0}.db", this.name));
+            System.IO.Directory.CreateDirectory(this.path);
+        }
+
+        protected void createConnection()
+        {
+            this.sqliteConnection = new SqliteConnection(
+                String.Format(
+                    "Data Source = {0}",
+                    this.dbPath));
         }
 
         protected void connect()
         {
             this.sqliteConnection.Open();
+        }
+
+        protected void disconnect()
+        {
+            this.sqliteConnection.Close();
         }
 
 
@@ -47,10 +74,18 @@ namespace Hagyma
 
         protected void createTablePage()
         {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_create;
+            command.ExecuteNonQuery();
         }
 
         protected void createTableSettings()
         {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_settings_create;
+            command.ExecuteNonQuery();
         }
 
 
