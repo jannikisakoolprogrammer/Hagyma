@@ -18,25 +18,42 @@ namespace Hagyma
         CREATE TABLE IF NOT EXISTS page(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             parent_id INTEGER,
+            sort_id INTEGER,
             name TEXT NOT NULL,
             content TEXT);";
         public const string database_table_page_insert = @"
         INSERT INTO page(
             parent_id,
+            sort_id,
             name,
             content)
         VALUES(
             @parent_id,
+            @sort_id,
             @name,
             @content)";
         public const string database_table_page_selectall = @"
         SELECT * FROM page;";
+        public const string database_table_page_selectall_order_by_sort_id_asc = @"
+        SELECT * FROM page
+            ORDER BY sort_id ASC;";
+        public const string database_table_page_selectall_order_by_sort_id_desc = @"
+        SELECT * FROM page
+            ORDER BY sort_id DESC;";
         public const string database_table_page_select_id = @"
         SELECT * FROM page
             WHERE id = @id;";
         public const string database_table_page_select_parent_id = @"
         SELECT * FROM page
-            WHERE parent_Id = @parent_id;";
+            WHERE parent_id = @parent_id;";
+        public const string database_table_page_select_parent_id_order_by_sort_id_asc = @"
+        SELECT * FROM page
+            WHERE parent_id = @parent_id
+            ORDER BY sort_id ASC;";
+        public const string database_table_page_select_parent_id_order_by_sort_id_desc = @"
+        SELECT * FROM page
+            WHERE parent_id = @parent_id
+            ORDER BY sort_id DESC;";
         public const string database_table_page_deleteall = @"
         DELETE FROM page;";
         public const string database_table_page_delete_id = @"

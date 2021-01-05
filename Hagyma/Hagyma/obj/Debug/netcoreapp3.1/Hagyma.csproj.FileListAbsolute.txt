@@ -35,3 +35,4 @@ Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.dll
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.pdb
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.genruntimeconfig.cache
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.NewProjectView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.OpenProject.OpenProjectView.resources
