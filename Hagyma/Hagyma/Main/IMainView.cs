@@ -10,5 +10,10 @@ namespace Hagyma
     {        
         public event ButtonClicked newProjectClicked;
         public event ButtonClicked openProjectClicked;
+
+        public void disableSaveButtonPages();
+        public void disableTreeViewPages();
+        public void disableTextBoxPages();
+
     }
 }

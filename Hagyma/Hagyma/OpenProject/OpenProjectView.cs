@@ -22,5 +22,34 @@ namespace Hagyma
         {
             this.comboBoxProjects.Items.AddRange(_items);
         }
+
+        public string getSelectedProjectPath()
+        {
+            return this.comboBoxProjects.SelectedItem.ToString();
+        }
+
+        private void buttonOk_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonOkClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void buttonCancel_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonCancelClicked(
+                    _sender,
+                    _e);
+            }
+        }
     }
 }

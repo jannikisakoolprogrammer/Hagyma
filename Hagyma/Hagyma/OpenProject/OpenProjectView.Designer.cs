@@ -40,7 +40,7 @@ namespace Hagyma
             this.comboBoxProjects.FormattingEnabled = true;
             this.comboBoxProjects.Location = new System.Drawing.Point(12, 31);
             this.comboBoxProjects.Name = "comboBoxProjects";
-            this.comboBoxProjects.Size = new System.Drawing.Size(156, 23);
+            this.comboBoxProjects.Size = new System.Drawing.Size(236, 23);
             this.comboBoxProjects.TabIndex = 0;
             // 
             // labelOpenProject
@@ -60,6 +60,7 @@ namespace Hagyma
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
@@ -69,6 +70,7 @@ namespace Hagyma
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // OpenProjectView
             // 

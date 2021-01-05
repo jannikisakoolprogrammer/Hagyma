@@ -17,6 +17,7 @@ namespace Hagyma
             model = new ModelMain();
             view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
             view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
+            this.onNoProjectLoaded();
         }
 
         /// <summary>
@@ -47,8 +48,7 @@ namespace Hagyma
             {
                 // Set project in MainModel so we can work with it later.
                 this.model.setProject(localProject);
-
-                // TODO:  Enable certain controls now.
+                this.onProjectLoaded();
             }
         }
 
@@ -59,6 +59,25 @@ namespace Hagyma
             // Create presenter to show open project dialog and show the dialog.
             OpenProjectPresenter openProjectPresenter = new OpenProjectPresenter(this);
             openProjectPresenter.run();
+
+            // Set project if one was opened just now.
+            Project localProject = openProjectPresenter.getProject();
+            if (localProject != null)
+            {
+                // Set project in MainModel so we can work with it later.
+                this.model.setProject(localProject);
+                this.onProjectLoaded();
+            }
+        }
+
+        protected void onNoProjectLoaded()
+        {
+            // TODO
+        }
+
+        protected void onProjectLoaded()
+        {
+            // TODO
         }
     }
 }

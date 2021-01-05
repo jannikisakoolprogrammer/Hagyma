@@ -11,7 +11,7 @@ namespace Hagyma
         protected OpenProjectView openProjectView;
         protected OpenProjectModel openProjectModel;
 
-        protected string projectToCreatePath;
+        protected string projectToOpenPath;
         protected string projectsDirPath;
         protected string projectName;
 
@@ -22,20 +22,41 @@ namespace Hagyma
             this.openProjectModel = new OpenProjectModel();
 
             // Connect eventhandlers here.
-            //this.newProjectView.buttonOkClicked += this.on_buttonOkClicked;
-            //this.newProjectView.buttonCancelClicked += this.on_buttonCancelClicked;
+            this.openProjectView.buttonOkClicked += this.on_buttonOkClicked;
+            this.openProjectView.buttonCancelClicked += this.on_buttonCancelClicked;
 
             // Fill combobox.
-            // TODO:  Get data from model.
-            System.Object[] items = new System.Object[2];
-            items[0] = "Jannik";
-            items[1] = "vagyok";
-            this.openProjectView.comboBoxSetProjects(items);
+            this.openProjectView.comboBoxSetProjects(this.openProjectModel.getProjects());
         }
 
         public void run()
         {
             this.openProjectView.ShowDialog();
+        }
+
+        public void on_buttonOkClicked(
+            object _sender,
+            EventArgs _e)
+        {
+            // TODO.
+            // Close dialog.
+            this.openProjectView.Hide();
+
+            // Create project.
+            this.projectToOpenPath = this.openProjectView.getSelectedProjectPath();
+            this.openProjectModel.openProject(this.projectToOpenPath);
+        }
+
+        public void on_buttonCancelClicked(
+            object _sender,
+            EventArgs _e)
+        {
+            this.openProjectView.Hide();
+        }
+
+        public Project getProject()
+        {
+            return this.openProjectModel.getProject();
         }
     }
 }
