@@ -1,5 +1,5 @@
 ﻿
-namespace Hagyma.OpenProject
+namespace Hagyma
 {
     partial class OpenProjectView
     {

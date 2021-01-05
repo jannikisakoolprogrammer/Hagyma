@@ -15,7 +15,8 @@ namespace Hagyma
         {
             view = new ViewMain();
             model = new ModelMain();
-            view.newProjectClicked += this.on_eventPointer_newProjectToolStripMenuItem_Click;
+            view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
+            view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
         }
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace Hagyma
         }
 
 
-        public void on_eventPointer_newProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        public void on_newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Show dialog to create a new project.
             NewProjectPresenter newProjectPresenter = new NewProjectPresenter(this);
@@ -49,7 +50,15 @@ namespace Hagyma
 
                 // TODO:  Enable certain controls now.
             }
+        }
 
+        public void on_openProjectToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            // Create presenter to show open project dialog and show the dialog.
+            OpenProjectPresenter openProjectPresenter = new OpenProjectPresenter(this);
+            openProjectPresenter.run();
         }
     }
 }

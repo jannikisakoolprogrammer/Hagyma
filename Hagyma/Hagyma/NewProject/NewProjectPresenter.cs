@@ -23,6 +23,7 @@ namespace Hagyma
 
             // Connect eventhandlers here.
             this.newProjectView.buttonOkClicked += this.on_buttonOkClicked;
+            this.newProjectView.buttonCancelClicked += this.on_buttonCancelClicked;
         }
 
         public void run()
@@ -113,6 +114,14 @@ namespace Hagyma
                 }
             }
             return true;
+        }
+
+        public void on_buttonCancelClicked(
+            Object _sender,
+            EventArgs _e)
+        {
+            // Close dialog.
+            this.newProjectView.Hide();
         }
 
         public Project getProject()

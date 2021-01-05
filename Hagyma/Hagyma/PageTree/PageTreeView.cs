@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Hagyma.PageTree
+namespace Hagyma
 {
     public partial class PageTreeView : Form
     {

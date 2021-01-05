@@ -1,5 +1,5 @@
 ﻿
-namespace Hagyma.PageTree
+namespace Hagyma
 {
     partial class PageTreeView
     {

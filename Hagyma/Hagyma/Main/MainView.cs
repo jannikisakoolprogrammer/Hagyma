@@ -12,25 +12,36 @@ namespace Hagyma
 {
     public partial class ViewMain : Form, IViewMain
     {
-        public event NewProjectClicked newProjectClicked;
+        public event ButtonClicked newProjectClicked;
+        public event ButtonClicked openProjectClicked;
 
         public ViewMain()
         {
             InitializeComponent();
         }
 
-        public void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        public void newProjectToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
         {
-            this.newProjectClicked(sender, e);
+            if (_sender != null)
+            {
+                this.newProjectClicked(
+                    _sender,
+                    _e);
+            }
         }
 
-        public void test()
+        public void openProjectToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
         {
-        }
-
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            if (_sender != null)
+            {
+                this.openProjectClicked(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

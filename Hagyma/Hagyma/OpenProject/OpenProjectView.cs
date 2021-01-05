@@ -6,13 +6,21 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Hagyma.OpenProject
+namespace Hagyma
 {
-    public partial class OpenProjectView : Form
+    public partial class OpenProjectView : Form, OpenProjectIView
     {
+        public event ButtonClicked buttonOkClicked;
+        public event ButtonClicked buttonCancelClicked;
+
         public OpenProjectView()
         {
             InitializeComponent();
+        }
+
+        public void comboBoxSetProjects(System.Object[] _items)
+        {
+            this.comboBoxProjects.Items.AddRange(_items);
         }
     }
 }

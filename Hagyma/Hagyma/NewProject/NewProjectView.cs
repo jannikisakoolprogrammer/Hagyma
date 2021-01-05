@@ -12,8 +12,8 @@ namespace Hagyma
 {
     public partial class NewProjectView : Form, NewProjectIView
     {
-        public event ButtonOkClicked buttonOkClicked;
-        public event ButtonCancelClicked buttonCancelClicked;
+        public event ButtonClicked buttonOkClicked;
+        public event ButtonClicked buttonCancelClicked;
 
         public NewProjectView()
         {
@@ -24,13 +24,27 @@ namespace Hagyma
         {
             if (_sender != null)
             {
-                this.buttonOkClicked(_sender, _e);
+                this.buttonOkClicked(
+                    _sender,
+                    _e);
             }
         }
 
         public System.Windows.Forms.TextBox getTextBoxNewProject()
         {
             return this.textBoxNewProject;
+        }
+
+        private void buttonCancel_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonCancelClicked(
+                    _sender,
+                    _e);
+            }
         }
     }
 }
