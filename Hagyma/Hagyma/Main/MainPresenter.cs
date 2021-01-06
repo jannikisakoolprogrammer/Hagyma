@@ -9,7 +9,6 @@ namespace Hagyma
     public class PresenterMain : Presenter
     {
         ViewMain view;
-        ModelMain model;
 
         public PresenterMain()
         {

@@ -14,5 +14,10 @@ namespace Hagyma
         {
             InitializeComponent();
         }
+
+        private void PageTreeView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
     }
 }
