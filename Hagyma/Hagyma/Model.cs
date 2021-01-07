@@ -64,5 +64,11 @@ namespace Hagyma
             this.project.createPage(
                 _pageName);
         }
+
+        public void closeProject()
+        {
+            this.project.close();
+            this.project = null;
+        }
     }
 }

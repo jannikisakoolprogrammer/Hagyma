@@ -37,6 +37,11 @@ namespace Hagyma
                 false);
         }
 
+        public void close()
+        {
+            this.disconnect();
+        }
+
         public Project(
             string _path,
             bool _create = false)

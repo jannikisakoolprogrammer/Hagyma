@@ -7,6 +7,10 @@ using System.Windows.Forms;
 
 namespace Hagyma
 {
+    public delegate void MenuItemClicked(
+        object _sender,
+        EventArgs _e);
+
     public delegate void ButtonClicked(
         object _sender,
         EventArgs _eventArgs);

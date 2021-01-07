@@ -15,6 +15,24 @@ namespace Hagyma
             Presenter _parentPresenter = null)
         {
             this.parentPresenter = _parentPresenter;
+            this.initModel();
+            this.initView();
+            this.connectEventHandlers();
+        }
+
+        protected virtual void initModel()
+        {
+            this.model = new Model();
+        }
+
+        protected virtual void initView()
+        {
+
+        }
+
+        protected virtual void connectEventHandlers()
+        {
+            // Override this in the base class.
         }
 
         public void setModel(
@@ -27,5 +45,7 @@ namespace Hagyma
         {
             return this.model.getProject();
         }
+
+
     }
 }

@@ -10,14 +10,32 @@ namespace Hagyma
     {
         ViewMain view;
 
-        public PresenterMain()
+        public PresenterMain() : base()
         {
-            view = new ViewMain();
-            model = new Model();
-            view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
-            view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
-            view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
             this.onNoProjectLoaded();
+        }
+
+        protected override void initModel()
+        {
+            base.initModel();
+        }
+
+        protected override void initView()
+        {
+            base.initView();
+            this.view = new ViewMain();
+        }
+
+        protected override void connectEventHandlers()
+        {
+            base.connectEventHandlers();
+
+            this.view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
+            this.view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
+            this.view.closeProjectClicked += this.on_closeProjectToolStripMenuItem_Click;
+            this.view.quitClicked += this.on_quit_Click;
+
+            this.view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
         }
 
         /// <summary>
@@ -70,6 +88,28 @@ namespace Hagyma
             }
         }
 
+        public void on_closeProjectToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            this.model.closeProject();
+            if (this.model.getProject() == null)
+            {
+                this.onNoProjectLoaded();
+            }
+        }
+
+        public void on_quit_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (this.model.getProject() != null)
+            {
+                this.model.closeProject();
+            }
+            Application.Exit();
+        }
+
         public void on_pageTreeToolStripMenuItemClick(
             object _sender,
             EventArgs _e)
@@ -80,12 +120,16 @@ namespace Hagyma
 
         protected void onNoProjectLoaded()
         {
-            // TODO
+            this.view.enableFileMenuNewProjectItem();
+            this.view.enableFileMenuOpenProjectItem();
+            this.view.disableFileMenuCloseProjectItem();
         }
 
         protected void onProjectLoaded()
         {
-            // TODO
+            this.view.disableFileMenuNewProjectItem();
+            this.view.disableFileMenuOpenProjectItem();
+            this.view.enableFileMenuCloseProjectItem();
         }
     }
 }

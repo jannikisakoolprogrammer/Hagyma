@@ -12,9 +12,12 @@ namespace Hagyma
 {
     public partial class ViewMain : Form, IViewMain
     {
-        public event ButtonClicked newProjectClicked;
-        public event ButtonClicked openProjectClicked;
-        public event ButtonClicked pageTreeToolStripMenuItemClicked;
+        public event MenuItemClicked newProjectClicked;
+        public event MenuItemClicked openProjectClicked;
+        public event MenuItemClicked closeProjectClicked;
+        public event MenuItemClicked quitClicked;
+
+        public event MenuItemClicked pageTreeToolStripMenuItemClicked;
 
         public ViewMain()
         {
@@ -45,6 +48,30 @@ namespace Hagyma
             }
         }
 
+        public void closeProjectToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.closeProjectClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public void quitToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.quitClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
         public void pageTreeToolStripMenuItem_Click(
             object _sender,
             EventArgs _e)
@@ -57,7 +84,15 @@ namespace Hagyma
             }
         }
 
+        public void enableSaveButtonPages()
+        {
+        }
+
         public void disableSaveButtonPages()
+        {
+        }
+
+        public void enableTreeViewPages()
         {
         }
 
@@ -65,8 +100,42 @@ namespace Hagyma
         {
         }
 
+        public void enableTextBoxPages()
+        {
+        }
+
         public void disableTextBoxPages()
         {
+        }
+
+        public void enableFileMenuNewProjectItem()
+        {
+            this.newProjectToolStripMenuItem.Enabled = true;
+        }
+
+        public void disableFileMenuNewProjectItem()
+        {
+            this.newProjectToolStripMenuItem.Enabled = false;
+        }
+
+        public void enableFileMenuOpenProjectItem()
+        {
+            this.openProjectToolStripMenuItem.Enabled = true;
+        }
+
+        public void disableFileMenuOpenProjectItem()
+        {
+            this.openProjectToolStripMenuItem.Enabled = false;
+        }
+
+        public void enableFileMenuCloseProjectItem()
+        {
+            this.closeProjectToolStripMenuItem.Enabled = true;
+        }
+
+        public void disableFileMenuCloseProjectItem()
+        {
+            this.closeProjectToolStripMenuItem.Enabled = false;
         }
     }
 }
