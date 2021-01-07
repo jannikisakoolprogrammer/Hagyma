@@ -44,6 +44,7 @@ namespace Hagyma
         public void refreshPageTree(
             TreeNode[] _treeNodes)
         {
+            this.treeView1.Nodes.Clear();
             this.treeView1.Nodes.AddRange(_treeNodes);
         }
 

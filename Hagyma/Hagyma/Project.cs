@@ -203,10 +203,12 @@ namespace Hagyma
             command.Connection = this.sqliteConnection;
             command.CommandText = Constants.database_table_page_selectall_order_by_sort_id_asc;
             SqliteDataReader dataReader = command.ExecuteReader();
-            System.Object[] row = new System.Object[dataReader.FieldCount];
+            
             System.Collections.ArrayList rows = new System.Collections.ArrayList();
+            System.Object[] row;
             while (dataReader.Read())
             {
+                row = new System.Object[dataReader.FieldCount];
                 dataReader.GetValues(row);
                 rows.Add(row);
             }

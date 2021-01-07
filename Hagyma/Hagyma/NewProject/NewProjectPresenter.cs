@@ -9,7 +9,6 @@ namespace Hagyma
     public class NewProjectPresenter : Presenter
     {
         protected NewProjectView newProjectView;
-        protected NewProjectModel newProjectModel;
 
         protected string projectToCreatePath;
         protected string projectsDirPath;
@@ -19,7 +18,7 @@ namespace Hagyma
             base(_parentPresenter)
         {
             this.newProjectView = new NewProjectView();
-            this.newProjectModel = new NewProjectModel();
+            this.model = new NewProjectModel();
 
             // Connect eventhandlers here.
             this.newProjectView.buttonOkClicked += this.on_buttonOkClicked;
@@ -62,11 +61,11 @@ namespace Hagyma
                 return;
             }
 
+            // Create project.
+            this.model.createProject(this.projectToCreatePath);
+
             // Close dialog.
             this.newProjectView.Hide();
-
-            // Create project.
-            this.newProjectModel.createProject(this.projectToCreatePath);            
         }
 
         protected bool validateProjectName()
@@ -126,7 +125,7 @@ namespace Hagyma
 
         public Project getProject()
         {
-            return this.newProjectModel.getProject();
+            return this.model.getProject();
         }
     }
 }

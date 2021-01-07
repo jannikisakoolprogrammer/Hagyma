@@ -9,7 +9,6 @@ namespace Hagyma
     public class OpenProjectPresenter : Presenter
     {
         protected OpenProjectView openProjectView;
-        protected OpenProjectModel openProjectModel;
 
         protected string projectToOpenPath;
         protected string projectsDirPath;
@@ -19,14 +18,14 @@ namespace Hagyma
             : base(_parentPresenter)
         {
             this.openProjectView = new OpenProjectView();
-            this.openProjectModel = new OpenProjectModel();
+            this.model = new OpenProjectModel();
 
             // Connect eventhandlers here.
             this.openProjectView.buttonOkClicked += this.on_buttonOkClicked;
             this.openProjectView.buttonCancelClicked += this.on_buttonCancelClicked;
 
             // Fill combobox.
-            this.openProjectView.comboBoxSetProjects(this.openProjectModel.getProjects());
+            this.openProjectView.comboBoxSetProjects(this.model.getProjects());
         }
 
         public void run()
@@ -38,13 +37,12 @@ namespace Hagyma
             object _sender,
             EventArgs _e)
         {
-            // TODO.
-            // Close dialog.
-            this.openProjectView.Hide();
-
             // Create project.
             this.projectToOpenPath = this.openProjectView.getSelectedProjectPath();
-            this.openProjectModel.openProject(this.projectToOpenPath);
+            this.model.openProject(this.projectToOpenPath);
+
+            // Close dialog.
+            this.openProjectView.Hide();
         }
 
         public void on_buttonCancelClicked(
@@ -53,10 +51,11 @@ namespace Hagyma
         {
             this.openProjectView.Hide();
         }
-
+        /*
         public Project getProject()
         {
             return this.openProjectModel.getProject();
         }
+        */
     }
 }

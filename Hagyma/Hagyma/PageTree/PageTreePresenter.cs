@@ -8,7 +8,6 @@ namespace Hagyma
     class PageTreePresenter : Presenter
     {
         public PageTreeView view;
-        public PageTreeModel model;
 
         protected System.Collections.ArrayList pages;
         protected System.Windows.Forms.TreeNode[] treeNodes;
@@ -17,7 +16,7 @@ namespace Hagyma
             : base(_parentPresenter)
         {
             this.view = new PageTreeView();
-            this.model = new PageTreeModel(
+            this.model = new Model(
                 this.parentPresenter.getProject());
 
             // Connect eventhandlers.
@@ -48,12 +47,12 @@ namespace Hagyma
         {
             System.Windows.Forms.TreeNode treeNode;
             this.treeNodes = new TreeNode[this.pages.Count];
-            int counter = 0;
+            int counter= 0;
             foreach (System.Object[] pageData in this.pages)
             {
                 treeNode = new System.Windows.Forms.TreeNode();                
                 treeNode.Text = pageData.GetValue(3).ToString();
-                treeNode.Tag = pageData.GetValue(2).ToString();
+                treeNode.Tag = pageData.GetValue(1);
                 this.treeNodes[counter] = treeNode;
                 counter++;
             }

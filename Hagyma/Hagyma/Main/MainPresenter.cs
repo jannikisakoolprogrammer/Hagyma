@@ -13,7 +13,7 @@ namespace Hagyma
         public PresenterMain()
         {
             view = new ViewMain();
-            model = new ModelMain();
+            model = new Model();
             view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
             view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
             view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
