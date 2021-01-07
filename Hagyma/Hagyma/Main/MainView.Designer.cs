@@ -181,6 +181,7 @@ namespace Hagyma
             this.pageTreeToolStripMenuItem.Name = "pageTreeToolStripMenuItem";
             this.pageTreeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.pageTreeToolStripMenuItem.Text = "Page tree";
+            this.pageTreeToolStripMenuItem.Click += new System.EventHandler(this.pageTreeToolStripMenuItem_Click);
             // 
             // filesToolStripMenuItem
             // 
@@ -355,6 +356,11 @@ namespace Hagyma
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void PageTreeToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion

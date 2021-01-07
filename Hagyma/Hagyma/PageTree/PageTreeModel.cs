@@ -11,5 +11,12 @@ namespace Hagyma
             : base(_project)
         {
         }
+
+        public void createNewPage(
+            string _pageName)
+        {
+            this.project.createPage(
+                _pageName);
+        }
     }
 }

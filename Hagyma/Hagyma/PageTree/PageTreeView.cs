@@ -8,16 +8,55 @@ using System.Windows.Forms;
 
 namespace Hagyma
 {
-    public partial class PageTreeView : Form
+    public partial class PageTreeView : Form, PageTreeIView
     {
+        public event ButtonClicked buttonAddClicked;
+        public event ButtonClicked buttonRenameClicked;
+        public event ButtonClicked buttonDeleteClicked;
+        public event ButtonClicked buttonUpClicked;
+        public event ButtonClicked buttonDownClicked;
+        public event FormClosed formClosed;
+
         public PageTreeView()
         {
             InitializeComponent();
         }
 
-        private void PageTreeView_FormClosed(object sender, FormClosedEventArgs e)
+        private void PageTreeView_FormClosed(
+            object _sender,
+            FormClosedEventArgs _e)
         {
+            if (_sender != null)
+            {
+                this.formClosed(
+                    _sender,
+                    _e);
+            }
+        }
 
+        public TreeNode getSelectedTreeNode()
+        {
+            TreeNode node;
+            node = new TreeNode();
+            return node;
+        }
+
+        public void refreshPageTree(
+            TreeNode[] _treeNodes)
+        {
+            this.treeView1.Nodes.AddRange(_treeNodes);
+        }
+
+        private void buttonAdd_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonAddClicked(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

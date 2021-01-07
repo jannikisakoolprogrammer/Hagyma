@@ -16,6 +16,7 @@ namespace Hagyma
             model = new ModelMain();
             view.newProjectClicked += this.on_newProjectToolStripMenuItem_Click;
             view.openProjectClicked += this.on_openProjectToolStripMenuItem_Click;
+            view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
             this.onNoProjectLoaded();
         }
 
@@ -67,6 +68,14 @@ namespace Hagyma
                 this.model.setProject(localProject);
                 this.onProjectLoaded();
             }
+        }
+
+        public void on_pageTreeToolStripMenuItemClick(
+            object _sender,
+            EventArgs _e)
+        {
+            PageTreePresenter pageTreePresenter = new PageTreePresenter(this);
+            pageTreePresenter.run();
         }
 
         protected void onNoProjectLoaded()

@@ -196,6 +196,46 @@ namespace Hagyma
             command.ExecuteNonQuery();
         }
 
+        public System.Collections.ArrayList getPages(
+            bool _content = true)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_selectall_order_by_sort_id_asc;
+            SqliteDataReader dataReader = command.ExecuteReader();
+            System.Object[] row = new System.Object[dataReader.FieldCount];
+            System.Collections.ArrayList rows = new System.Collections.ArrayList();
+            while (dataReader.Read())
+            {
+                dataReader.GetValues(row);
+                rows.Add(row);
+            }
+
+            return rows;
+        }
+
+        public void createPage(
+            string _pageName)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_insert;
+
+            command.Parameters.AddWithValue(
+                "@parent_id",
+                0);
+            command.Parameters.AddWithValue(
+                "@sort_id",
+                0);
+            command.Parameters.AddWithValue(
+                "@name",
+                _pageName);
+            command.Parameters.AddWithValue(
+                "@content",
+                "");
+            command.ExecuteNonQuery();
+        }
+
 
     }
 }
