@@ -23,6 +23,8 @@ namespace Hagyma
             this.view.buttonAddClicked += this.on_buttonAddClicked;
             this.view.buttonRenameClicked += this.on_buttonRenameClicked;
             this.view.buttonDeleteClicked += this.on_buttonDeleteClicked;
+            this.view.buttonUpClicked += this.on_buttonUpClicked;
+            this.view.buttonDownClicked += this.on_buttonDownClicked;
             this.view.formClosed += this.on_formClosed;
 
             this.refreshView();
@@ -130,6 +132,28 @@ namespace Hagyma
             EventArgs _e)
         {
             this.model.deletePage(
+                int.Parse(
+                    this.view.getSelectedTreeNode().Tag.ToString()));
+
+            this.refreshView();
+        }
+
+        public void on_buttonUpClicked(
+            object _sender,
+            EventArgs _e)
+        {
+            this.model.movePageUp(
+                int.Parse(
+                    this.view.getSelectedTreeNode().Tag.ToString()));
+
+            this.refreshView();
+        }
+
+        public void on_buttonDownClicked(
+            object _sender,
+            EventArgs _e)
+        {
+            this.model.movePageDown(
                 int.Parse(
                     this.view.getSelectedTreeNode().Tag.ToString()));
 

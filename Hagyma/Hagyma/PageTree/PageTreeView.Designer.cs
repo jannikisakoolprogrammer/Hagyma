@@ -33,6 +33,8 @@ namespace Hagyma
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonRename = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonMovePageUp = new System.Windows.Forms.Button();
+            this.buttonMovePageDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
@@ -72,11 +74,33 @@ namespace Hagyma
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonMovePageUp
+            // 
+            this.buttonMovePageUp.Location = new System.Drawing.Point(237, 102);
+            this.buttonMovePageUp.Name = "buttonMovePageUp";
+            this.buttonMovePageUp.Size = new System.Drawing.Size(101, 23);
+            this.buttonMovePageUp.TabIndex = 4;
+            this.buttonMovePageUp.Text = "Up";
+            this.buttonMovePageUp.UseVisualStyleBackColor = true;
+            this.buttonMovePageUp.Click += new System.EventHandler(this.buttonMovePageUp_Click);
+            // 
+            // buttonMovePageDown
+            // 
+            this.buttonMovePageDown.Location = new System.Drawing.Point(237, 132);
+            this.buttonMovePageDown.Name = "buttonMovePageDown";
+            this.buttonMovePageDown.Size = new System.Drawing.Size(101, 23);
+            this.buttonMovePageDown.TabIndex = 5;
+            this.buttonMovePageDown.Text = "Down";
+            this.buttonMovePageDown.UseVisualStyleBackColor = true;
+            this.buttonMovePageDown.Click += new System.EventHandler(this.buttonMovePageDown_Click);
+            // 
             // PageTreeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 439);
+            this.Controls.Add(this.buttonMovePageDown);
+            this.Controls.Add(this.buttonMovePageUp);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonRename);
             this.Controls.Add(this.buttonAdd);
@@ -94,5 +118,7 @@ namespace Hagyma
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonRename;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonMovePageUp;
+        private System.Windows.Forms.Button buttonMovePageDown;
     }
 }

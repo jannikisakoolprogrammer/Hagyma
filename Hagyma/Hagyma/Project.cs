@@ -369,12 +369,81 @@ namespace Hagyma
             }
         }
 
-        public void movePageUp()
+        public void movePageUp(
+            int _pageId)
         {
+            // Get selected page.
+            System.Object[] selectedPage = this.getSelectedPage(
+                _pageId);
+
+            // Get previous page.
+            System.Object[] previousPage = this.getPreviousPage(
+                _pageId);
+
+            // Reverse sort ids.
+            this.reverseSortIds(
+                int.Parse(
+                    selectedPage.GetValue(0).ToString()),
+                int.Parse(
+                    previousPage.GetValue(2).ToString()),
+                int.Parse(
+                    previousPage.GetValue(0).ToString()),
+                int.Parse(
+                    selectedPage.GetValue(2).ToString()));
         }
 
-        public void movePageDown()
+        public void movePageDown(
+            int _pageId)
         {
+            // Get selected page.
+            System.Object[] selectedPage = this.getSelectedPage(
+                _pageId);
+
+            // Get next page.
+            System.Object[] nextPage = this.getNextPage(
+                _pageId);
+
+            // Reverse sort ids.
+            this.reverseSortIds(
+                int.Parse(
+                    nextPage.GetValue(0).ToString()),
+                int.Parse(
+                    selectedPage.GetValue(2).ToString()),
+                int.Parse(
+                    selectedPage.GetValue(0).ToString()),
+                int.Parse(
+                    nextPage.GetValue(2).ToString()));
+        }
+
+        public void reverseSortIds(
+            int _selectedPageId,
+            int _selectedPageNewSortId,
+            int _otherPageId,
+            int _otherPageNewSortId)
+        {
+            SqliteCommand command;
+
+            command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_update_sort_id_by_id;
+            command.Parameters.AddWithValue(
+                "@id",
+                _selectedPageId);
+            command.Parameters.AddWithValue(
+                "@sort_id",
+                _selectedPageNewSortId);
+            command.ExecuteNonQuery();
+
+            command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_update_sort_id_by_id;
+            command.Parameters.AddWithValue(
+                "@id",
+                _otherPageId);
+            command.Parameters.AddWithValue(
+                "@sort_id",
+                _otherPageNewSortId);
+            command.ExecuteNonQuery();
         }
 
         protected void ascertainNewSortId()
@@ -384,14 +453,33 @@ namespace Hagyma
             this.newSortId = nPages;
         }
 
-        protected int nextSortId()
+        protected System.Object[] getSelectedPage(
+            int _pageId)
         {
-            return 0;
+            return this.getPageById(
+                _pageId);
         }
 
-        protected int previousSortId()
+        protected System.Object[] getPreviousPage(
+            int _pageId)
         {
-            return 0;
+            int sortId = int.Parse(
+                this.getPageById(                
+                    _pageId).GetValue(2).ToString());
+
+            return this.getPageBySortId(
+                sortId - 1);
+        }
+
+        protected System.Object[] getNextPage(
+            int _pageId)
+        {
+            int sortId = int.Parse(
+                this.getPageById(
+                    _pageId).GetValue(2).ToString());
+
+            return this.getPageBySortId(
+                sortId + 1);
         }
 
         protected int countPages()

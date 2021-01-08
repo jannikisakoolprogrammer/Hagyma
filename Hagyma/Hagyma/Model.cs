@@ -81,6 +81,20 @@ namespace Hagyma
                 _pageId);
         }
 
+        public void movePageUp(
+            int _pageId)
+        {
+            this.project.movePageUp(
+                _pageId);
+        }
+
+        public void movePageDown(
+            int _pageId)
+        {
+            this.project.movePageDown(
+                _pageId);
+        }
+
         public void closeProject()
         {
             this.project.close();

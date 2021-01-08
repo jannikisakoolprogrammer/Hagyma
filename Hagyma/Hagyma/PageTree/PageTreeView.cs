@@ -81,5 +81,29 @@ namespace Hagyma
                     _e);
             }
         }
+
+        private void buttonMovePageUp_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonUpClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void buttonMovePageDown_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonDownClicked(
+                    _sender,
+                    _e);
+            }
+        }
     }
 }
