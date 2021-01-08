@@ -31,8 +31,8 @@ namespace Hagyma
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonRename = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
@@ -52,31 +52,33 @@ namespace Hagyma
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // button2
+            // buttonRename
             // 
-            this.button2.Location = new System.Drawing.Point(237, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Rename";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRename.Location = new System.Drawing.Point(237, 42);
+            this.buttonRename.Name = "buttonRename";
+            this.buttonRename.Size = new System.Drawing.Size(101, 23);
+            this.buttonRename.TabIndex = 2;
+            this.buttonRename.Text = "Rename";
+            this.buttonRename.UseVisualStyleBackColor = true;
+            this.buttonRename.Click += new System.EventHandler(this.buttonRename_Click);
             // 
-            // button3
+            // buttonDelete
             // 
-            this.button3.Location = new System.Drawing.Point(237, 72);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonDelete.Location = new System.Drawing.Point(237, 72);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(101, 23);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // PageTreeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 439);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonRename);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.treeView1);
             this.Name = "PageTreeView";
@@ -90,7 +92,7 @@ namespace Hagyma
 
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonRename;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

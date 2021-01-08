@@ -123,6 +123,28 @@ namespace Hagyma
             this.view.enableFileMenuNewProjectItem();
             this.view.enableFileMenuOpenProjectItem();
             this.view.disableFileMenuCloseProjectItem();
+            this.view.disableActionsToolStripMenuItem();
+            this.view.disableButtonSaveCSS();
+            this.view.disableButtonSaveJS();
+            this.view.disableCopyToolStripMenuItem();
+            this.view.disableCutToolStripMenuItem();
+            this.view.disableDeleteToolStripMenuItem();
+            this.view.disableEditToolStripMenuItem();
+            this.view.disableGenerateToolStripMenuItem() ;
+            this.view.disableHelpToolStripMenuItem();
+            this.view.disablePageTreeToolStripMenuItem();
+            this.view.disablePasteToolStripMenuItem();
+            this.view.disableProjectToolStripMenuItem();
+            this.view.disableSaveButtonPages();
+            this.view.disableSettingsToolStripMenuItem();
+            this.view.disableStartTestserverToolStripMenuItem();
+            this.view.disableStopTestserverToolStripMenuItem();
+            this.view.disableTabControlEditor();
+            this.view.disableTextBoxCSS();
+            this.view.disableTextBoxJS();
+            this.view.disableTextBoxPages();
+            this.view.disableTreeViewPages();
+            this.view.disableUploadToolStripMenuItem();
         }
 
         protected void onProjectLoaded()
@@ -130,6 +152,28 @@ namespace Hagyma
             this.view.disableFileMenuNewProjectItem();
             this.view.disableFileMenuOpenProjectItem();
             this.view.enableFileMenuCloseProjectItem();
+            this.view.enableActionsToolStripMenuItem();
+            this.view.enableButtonSaveCSS();
+            this.view.enableButtonSaveJS();
+            this.view.enableCopyToolStripMenuItem();
+            this.view.enableCutToolStripMenuItem();
+            this.view.enableDeleteToolStripMenuItem();
+            this.view.enableEditToolStripMenuItem();
+            this.view.enableGenerateToolStripMenuItem();
+            this.view.enableHelpToolStripMenuItem();
+            this.view.enablePageTreeToolStripMenuItem();
+            this.view.enablePasteToolStripMenuItem();
+            this.view.enableProjectToolStripMenuItem();
+            this.view.enableSaveButtonPages();
+            this.view.enableSettingsToolStripMenuItem();
+            this.view.enableStartTestserverToolStripMenuItem();
+            this.view.enableStopTestserverToolStripMenuItem();
+            this.view.enableTabControlEditor();
+            this.view.enableTextBoxCSS();
+            this.view.enableTextBoxJS();
+            this.view.enableTextBoxPages();
+            this.view.enableTreeViewPages();
+            this.view.enableUploadToolStripMenuItem();
         }
     }
 }

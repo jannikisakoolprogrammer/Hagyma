@@ -20,6 +20,8 @@ namespace Hagyma
 
         protected SqliteConnection sqliteConnection;
 
+        protected int newSortId;
+
         
         public static Project NewProject(string _path)
         {
@@ -221,9 +223,49 @@ namespace Hagyma
             return rows;
         }
 
+        public System.Object[] getPageById(
+            int _pageId,
+            bool _content = true)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_select_id;
+            command.Parameters.AddWithValue(
+                "@id",
+                _pageId);
+            SqliteDataReader dataReader = command.ExecuteReader();
+            
+            dataReader.Read();
+            System.Object[] row = new System.Object[dataReader.FieldCount];
+            dataReader.GetValues(row);
+
+            return row;
+        }
+
+        public System.Object[] getPageBySortId(
+            int _sortId,
+            bool _content = true)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_select_sort_id;
+            command.Parameters.AddWithValue(
+                "@sort_id",
+                _sortId);
+            SqliteDataReader dataReader = command.ExecuteReader();
+
+            dataReader.Read();
+            System.Object[] row = new System.Object[dataReader.FieldCount];
+            dataReader.GetValues(row);
+
+            return row;
+        }
+
         public void createPage(
             string _pageName)
         {
+            this.ascertainNewSortId();
+
             SqliteCommand command = new SqliteCommand();
             command.Connection = this.sqliteConnection;
             command.CommandText = Constants.database_table_page_insert;
@@ -233,7 +275,7 @@ namespace Hagyma
                 0);
             command.Parameters.AddWithValue(
                 "@sort_id",
-                0);
+                this.newSortId);
             command.Parameters.AddWithValue(
                 "@name",
                 _pageName);
@@ -243,6 +285,118 @@ namespace Hagyma
             command.ExecuteNonQuery();
         }
 
+        public void renamePage(
+            string _newPageName,
+            int _pageID)
+        {
+            // Get old sort id.
+            System.Object[] row = this.getPageById(
+                _pageID);
+            int sortId = int.Parse(
+                row.GetValue(2).ToString());
 
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_update_id;
+
+            command.Parameters.AddWithValue(
+                "@parent_id",
+                0);
+            command.Parameters.AddWithValue(
+                "@sort_id",
+                sortId);
+            command.Parameters.AddWithValue(
+                "@name",
+                _newPageName);
+            command.Parameters.AddWithValue(
+                "@content",
+                "");
+            command.Parameters.AddWithValue(
+                "@id",
+                _pageID);
+            command.ExecuteNonQuery();
+        }
+
+        public void deletePage(
+            int _pageId)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_delete_id;
+            command.Parameters.AddWithValue(
+                "@id",
+                _pageId);
+
+            command.ExecuteNonQuery();
+
+            // Reassign sort ids.  Start from 0 and count up.
+            this.reassignSortIds();
+        }
+
+        protected void reassignSortIds()
+        {
+            int currentSortId = 1;
+            System.Collections.ArrayList pages = this.getPages();
+            foreach (System.Object[] page in pages)
+            {
+                int id = int.Parse(page.GetValue(0).ToString());
+                int parent_id = int.Parse(page.GetValue(1).ToString());                
+                string name = page.GetValue(3).ToString();
+                string content = page.GetValue(4).ToString();
+
+                SqliteCommand command = new SqliteCommand();
+                command.Connection = this.sqliteConnection;
+                command.CommandText = Constants.database_table_page_update_id;
+                command.Parameters.AddWithValue(
+                    "@id",
+                    id);
+                command.Parameters.AddWithValue(
+                    "@parent_id",
+                    parent_id);
+                command.Parameters.AddWithValue(
+                    "@sort_id",
+                    currentSortId);
+                command.Parameters.AddWithValue(
+                    "@name",
+                    name);
+                command.Parameters.AddWithValue(
+                    "@content",
+                    content);
+
+                command.ExecuteNonQuery();
+
+                currentSortId++;
+            }
+        }
+
+        public void movePageUp()
+        {
+        }
+
+        public void movePageDown()
+        {
+        }
+
+        protected void ascertainNewSortId()
+        {
+            int nPages = this.countPages();
+            nPages++;
+            this.newSortId = nPages;
+        }
+
+        protected int nextSortId()
+        {
+            return 0;
+        }
+
+        protected int previousSortId()
+        {
+            return 0;
+        }
+
+        protected int countPages()
+        {
+            return this.getPages().Count;
+        }
     }
 }

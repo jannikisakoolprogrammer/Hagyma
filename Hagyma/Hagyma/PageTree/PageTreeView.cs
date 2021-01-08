@@ -36,9 +36,7 @@ namespace Hagyma
 
         public TreeNode getSelectedTreeNode()
         {
-            TreeNode node;
-            node = new TreeNode();
-            return node;
+            return this.treeView1.SelectedNode;
         }
 
         public void refreshPageTree(
@@ -55,6 +53,30 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.buttonAddClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void buttonRename_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonRenameClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void buttonDelete_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonDeleteClicked(
                     _sender,
                     _e);
             }

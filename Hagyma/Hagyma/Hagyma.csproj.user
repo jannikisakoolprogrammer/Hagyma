@@ -4,6 +4,9 @@
     <Compile Update="AddPage\AddPageView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EditPage\EditPageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main\MainView.cs">
       <SubType>Form</SubType>
     </Compile>

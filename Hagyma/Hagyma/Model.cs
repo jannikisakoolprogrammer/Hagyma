@@ -65,6 +65,22 @@ namespace Hagyma
                 _pageName);
         }
 
+        public void renamePage(
+            string _newPageName,
+            int _pageID)
+        {
+            this.project.renamePage(
+                _newPageName,
+                _pageID);
+        }
+
+        public void deletePage(
+            int _pageId)
+        {
+            this.project.deletePage(
+                _pageId);
+        }
+
         public void closeProject()
         {
             this.project.close();

@@ -43,6 +43,9 @@ namespace Hagyma
         public const string database_table_page_select_id = @"
         SELECT * FROM page
             WHERE id = @id;";
+        public const string database_table_page_select_sort_id = @"
+        SELECT * FROM page
+            WHERE sort_id = @sort_id;";
         public const string database_table_page_select_parent_id = @"
         SELECT * FROM page
             WHERE parent_id = @parent_id;";
@@ -66,7 +69,8 @@ namespace Hagyma
         UPDATE page SET
             parent_id = @parent_id,
             name = @name,
-            content = @content
+            content = @content,
+            sort_id = @sort_id
         WHERE
             id = @id;";
 
