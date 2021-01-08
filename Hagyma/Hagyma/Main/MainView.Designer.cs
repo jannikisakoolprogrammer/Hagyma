@@ -336,6 +336,7 @@ namespace Hagyma
             this.buttonSaveJS.TabIndex = 0;
             this.buttonSaveJS.Text = "Save";
             this.buttonSaveJS.UseVisualStyleBackColor = true;
+            this.buttonSaveJS.Click += new System.EventHandler(this.buttonSaveJS_Click);
             // 
             // ViewMain
             // 

@@ -106,7 +106,6 @@ namespace Hagyma
 
         public void loadCSS()
         {
-            // Open CSS file for reading.
             this.css = this.project.loadCSS();
         }
 
@@ -125,6 +124,28 @@ namespace Hagyma
         {
             this.project.writeCSS(
                 this.css);
+        }
+
+        public void loadJS()
+        {
+            this.js = this.project.loadJS();
+        }
+
+        public string getJS()
+        {
+            return this.js;
+        }
+
+        public void setJS(
+            string _js)
+        {
+            this.js = _js;
+        }
+
+        public void writeJS()
+        {
+            this.project.writeJS(
+                this.js);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Hagyma
         public event MenuItemClicked pageTreeToolStripMenuItemClicked;
 
         public event ButtonClicked buttonSaveCSSClicked;
+        public event ButtonClicked buttonSaveJSClicked;
 
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
@@ -81,6 +82,13 @@ namespace Hagyma
         public void displayCSS(
             string _css);
         public string getCSS();
+        public void displayJS(
+            string _JS);
+        public string getJS();
+
+        public void clearPagesTabPage();
+        public void clearCSSTabPage();
+        public void clearJSTabPage();
 
     }
 }

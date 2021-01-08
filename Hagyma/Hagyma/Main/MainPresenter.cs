@@ -41,6 +41,7 @@ namespace Hagyma
             this.view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
 
             this.view.buttonSaveCSSClicked += this.on_buttonSaveCSSClick;
+            this.view.buttonSaveJSClicked += this.on_buttonSaveJSClick;
         }
 
         /// <summary>
@@ -151,7 +152,7 @@ namespace Hagyma
             this.view.disableTreeViewPages();
             this.view.disableUploadToolStripMenuItem();
 
-            // this.unloadView();
+            this.unloadView();
         }
 
         protected void onProjectLoaded()
@@ -190,11 +191,14 @@ namespace Hagyma
         {
             this.loadPages();
             this.loadCSS();
-            //this.loadJS();
+            this.loadJS();
         }
 
         protected void unloadView()
         {
+            this.view.clearPagesTabPage();
+            this.view.clearCSSTabPage();
+            this.view.clearJSTabPage();
         }
 
         protected void loadPages()
@@ -236,14 +240,14 @@ namespace Hagyma
             string css = this.model.getCSS();
             this.view.displayCSS(css);
         }
-        /*
+        
         protected void loadJS()
         {
-            string js = this.model.fetchJS();
+            this.model.loadJS();
+            string js = this.model.getJS();
             this.view.displayJS(js);
 
         }
-        */
 
         protected void saveCSS()
         {
@@ -252,11 +256,26 @@ namespace Hagyma
             this.model.writeCSS();
         }
 
+
+        protected void saveJS()
+        {
+            string js = this.view.getJS();
+            this.model.setJS(js);
+            this.model.writeJS();
+        }
+
         public void on_buttonSaveCSSClick(
             object _sender,
             EventArgs _e)
         {
             this.saveCSS();
+        }
+
+        public void on_buttonSaveJSClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.saveJS();
         }
     }
 }

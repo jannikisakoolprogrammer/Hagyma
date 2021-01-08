@@ -20,6 +20,7 @@ namespace Hagyma
         public event MenuItemClicked pageTreeToolStripMenuItemClicked;
 
         public event ButtonClicked buttonSaveCSSClicked;
+        public event ButtonClicked buttonSaveJSClicked;
 
         public ViewMain()
         {
@@ -345,6 +346,42 @@ namespace Hagyma
                     _sender,
                     _e);
             }
+        }
+        public void displayJS(
+            string _js)
+        {
+            this.textBoxJS.Clear();
+            this.textBoxJS.Text = _js;
+        }
+
+        public string getJS()
+        {
+            return this.textBoxJS.Text;
+        }
+
+        private void buttonSaveJS_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonSaveJSClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public void clearPagesTabPage()
+        {
+            this.treeViewPages.Nodes.Clear();
+        }
+        public void clearCSSTabPage()
+        {
+            this.textBoxCSS.Clear();
+        }
+        public void clearJSTabPage()
+        {
+            this.textBoxJS.Clear();
         }
     }
 }

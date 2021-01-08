@@ -501,5 +501,22 @@ namespace Hagyma
                 this.filePathCSS,
                 _css);
         }
+
+        public string loadJS()
+        {
+            return System.IO.File.ReadAllText(
+                this.filePathJS,
+                new System.Text.UTF8Encoding());
+        }
+
+        public void writeJS(
+            string _js)
+        {
+            System.IO.File.WriteAllText(
+                this.filePathJS,
+                _js);
+        }
+
+
     }
 }
