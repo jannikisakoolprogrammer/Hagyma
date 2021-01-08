@@ -486,5 +486,20 @@ namespace Hagyma
         {
             return this.getPages().Count;
         }
+
+        public string loadCSS()
+        {
+            return System.IO.File.ReadAllText(
+                this.filePathCSS,
+                new System.Text.UTF8Encoding());
+        }
+
+        public void writeCSS(
+            string _css)
+        {
+            System.IO.File.WriteAllText(
+                this.filePathCSS,
+                _css);
+        }
     }
 }

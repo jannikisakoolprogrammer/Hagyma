@@ -16,6 +16,9 @@ namespace Hagyma
 
         protected Project project;
 
+        protected string css;
+        protected string js;
+
         public Model(Project _project = null)
         {
             this.project = _project;
@@ -99,6 +102,29 @@ namespace Hagyma
         {
             this.project.close();
             this.project = null;
+        }
+
+        public void loadCSS()
+        {
+            // Open CSS file for reading.
+            this.css = this.project.loadCSS();
+        }
+
+        public string getCSS()
+        {
+            return this.css;
+        }
+
+        public void setCSS(
+            string _css)
+        {
+            this.css = _css;
+        }
+
+        public void writeCSS()
+        {
+            this.project.writeCSS(
+                this.css);
         }
     }
 }

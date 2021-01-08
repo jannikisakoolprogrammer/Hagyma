@@ -10,6 +10,9 @@ namespace Hagyma
     {
         ViewMain view;
 
+        System.Collections.ArrayList pages;
+        TreeNode[] treeNodesPages;
+
         public PresenterMain() : base()
         {
             this.onNoProjectLoaded();
@@ -36,6 +39,8 @@ namespace Hagyma
             this.view.quitClicked += this.on_quit_Click;
 
             this.view.pageTreeToolStripMenuItemClicked += this.on_pageTreeToolStripMenuItemClick;
+
+            this.view.buttonSaveCSSClicked += this.on_buttonSaveCSSClick;
         }
 
         /// <summary>
@@ -145,6 +150,8 @@ namespace Hagyma
             this.view.disableTextBoxPages();
             this.view.disableTreeViewPages();
             this.view.disableUploadToolStripMenuItem();
+
+            // this.unloadView();
         }
 
         protected void onProjectLoaded()
@@ -174,6 +181,82 @@ namespace Hagyma
             this.view.enableTextBoxPages();
             this.view.enableTreeViewPages();
             this.view.enableUploadToolStripMenuItem();
+
+            // Load pages into tree control.
+            this.loadView();            
+        }
+
+        protected void loadView()
+        {
+            this.loadPages();
+            this.loadCSS();
+            //this.loadJS();
+        }
+
+        protected void unloadView()
+        {
+        }
+
+        protected void loadPages()
+        {
+            this.getPageStructureData();
+            this.preparePageStructureData();
+            this.updatePageTree();
+        }
+
+        protected void getPageStructureData()
+        {
+            this.pages = this.model.getProject().getPages();
+        }
+
+        protected void preparePageStructureData()
+        {
+            System.Windows.Forms.TreeNode treeNode;
+            this.treeNodesPages = new TreeNode[this.pages.Count];
+            int counter = 0;
+            foreach (System.Object[] pageData in this.pages)
+            {
+                treeNode = new System.Windows.Forms.TreeNode();
+                treeNode.Text = pageData.GetValue(3).ToString();
+                treeNode.Tag = pageData.GetValue(0);
+                this.treeNodesPages[counter] = treeNode;
+                counter++;
+            }
+        }
+
+        protected void updatePageTree()
+        {
+            this.view.refreshPageTree(
+                this.treeNodesPages);
+        }
+
+        protected void loadCSS()
+        {
+            this.model.loadCSS();
+            string css = this.model.getCSS();
+            this.view.displayCSS(css);
+        }
+        /*
+        protected void loadJS()
+        {
+            string js = this.model.fetchJS();
+            this.view.displayJS(js);
+
+        }
+        */
+
+        protected void saveCSS()
+        {
+            string css = this.view.getCSS();
+            this.model.setCSS(css);
+            this.model.writeCSS();
+        }
+
+        public void on_buttonSaveCSSClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.saveCSS();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Hagyma
 {
@@ -14,6 +15,8 @@ namespace Hagyma
         public event MenuItemClicked quitClicked;
 
         public event MenuItemClicked pageTreeToolStripMenuItemClicked;
+
+        public event ButtonClicked buttonSaveCSSClicked;
 
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
@@ -73,6 +76,11 @@ namespace Hagyma
         public void disableTreeViewPages();
         public void enableTextBoxPages();
         public void disableTextBoxPages();
+        public void refreshPageTree(
+            TreeNode[] _pages);
+        public void displayCSS(
+            string _css);
+        public string getCSS();
 
     }
 }

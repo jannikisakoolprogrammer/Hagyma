@@ -124,16 +124,14 @@ namespace Hagyma
             this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
             this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.closeProjectToolStripMenuItem.Text = "Close project";
-            this.closeProjectToolStripMenuItem.Click += new System.EventHandler(
-                this.closeProjectToolStripMenuItem_Click);
+            this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.closeProjectToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(
-                this.quitToolStripMenuItem_Click);
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -300,6 +298,7 @@ namespace Hagyma
             this.buttonSaveCSS.TabIndex = 2;
             this.buttonSaveCSS.Text = "Save";
             this.buttonSaveCSS.UseVisualStyleBackColor = true;
+            this.buttonSaveCSS.Click += new System.EventHandler(this.buttonSaveCSS_Click);
             // 
             // textBoxCSS
             // 
