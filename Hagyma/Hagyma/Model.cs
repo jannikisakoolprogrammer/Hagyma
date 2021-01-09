@@ -19,6 +19,8 @@ namespace Hagyma
         protected string css;
         protected string js;
 
+        protected Dictionary<int, Page> tempPages;
+
         public Model(Project _project = null)
         {
             this.project = _project;
@@ -29,6 +31,8 @@ namespace Hagyma
 
             // Get list of all projects that exist in the "project" directory.
             this.loadExistingProjects();
+
+            this.tempPages = new Dictionary<int, Page>();
         }
 
         public Project getProject()
@@ -146,6 +150,78 @@ namespace Hagyma
         {
             this.project.writeJS(
                 this.js);
+        }
+
+        public string loadPage(
+            int _pageId)
+        {
+            // Load page from db if not already loaded.
+            bool result;
+
+            result = this.isPageAlreadyLoaded(
+                _pageId);
+
+            if (result == false)
+            {
+                // Load from db, and write in tempPages first.
+                string content = this.getPageContent(
+                    _pageId);
+
+                Page page = new Page(
+                    _pageId,
+                    content);
+
+                tempPages.Add(
+                    _pageId,
+                    page);
+            }
+
+            // Now load from tempPages.
+            return tempPages[_pageId].getContent();
+        }
+
+        public bool isPageAlreadyLoaded(
+            int _pageId)
+        {
+            return tempPages.ContainsKey(
+                _pageId);
+        }
+
+        public string getPageContent(
+            int _pageId)
+        {
+            return this.getProject().getPageById(
+                _pageId).GetValue(4).ToString();
+        }
+
+        public void updateTempPageContent(
+            int _pageId,
+            string _content)
+        {
+            bool result = this.isPageAlreadyLoaded(
+                _pageId);
+
+            if (result == true)
+            {
+                Page page = tempPages[_pageId];
+                page.setContent(_content);
+                tempPages[_pageId] = page;
+            }
+        }
+
+        public void writeTempPageContent(
+            int _pageId)
+        {
+            bool result = this.isPageAlreadyLoaded(
+                _pageId);
+
+            if (result == true)
+            {
+                Page page = tempPages[_pageId];
+                this.getProject().updatePageContent(
+                    page.getId(),
+                    page.getContent());
+            }
         }
     }
 }

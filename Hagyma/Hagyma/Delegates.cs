@@ -18,4 +18,16 @@ namespace Hagyma
     public delegate void FormClosed(
         object _sender,
         FormClosedEventArgs _e);
+
+    public delegate void TreeNodeClicked(
+        object _sender,
+        TreeNodeMouseClickEventArgs _e);
+
+    public delegate void TreeNodeClickedBefore(
+        object _sender,
+        TreeViewCancelEventArgs _e);
+
+    public delegate void TreeNodeClickedAfter(
+        object _sender,
+        TreeViewEventArgs _e);
 }

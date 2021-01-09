@@ -13,6 +13,8 @@ namespace Hagyma
         System.Collections.ArrayList pages;
         TreeNode[] treeNodesPages;
 
+        int pageId;
+
         public PresenterMain() : base()
         {
             this.onNoProjectLoaded();
@@ -42,6 +44,11 @@ namespace Hagyma
 
             this.view.buttonSaveCSSClicked += this.on_buttonSaveCSSClick;
             this.view.buttonSaveJSClicked += this.on_buttonSaveJSClick;
+
+            //this.view.pageTreeTreeNodeClicked += this.on_pageTreeTreeNodeClick;
+            this.view.buttonSavePageClicked += this.on_buttonSavePageClick;
+            this.view.pageTreeTreeNodeClickedBefore += this.on_pageTreeTreeNodeClickedBefore;
+            this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
         }
 
         /// <summary>
@@ -276,6 +283,69 @@ namespace Hagyma
             EventArgs _e)
         {
             this.saveJS();
+        }
+
+        public void on_pageTreeTreeNodeClick(
+            object _sender,
+            TreeNodeMouseClickEventArgs _e)
+        {
+            this.pageId = int.Parse(_e.Node.Tag.ToString());
+            this.loadPage();
+        }
+
+        public void on_pageTreeNodeAfterClick(
+            object _sender,
+            TreeViewEventArgs _e)
+        {
+            this.pageId = int.Parse(_e.Node.Tag.ToString());
+            this.loadPage();
+        }
+
+        protected void loadPage()
+        {
+            this.model.loadPage(
+                this.pageId);
+            string content = this.model.getPageContent(
+                this.pageId);
+            this.view.textBoxPagesSetContent(
+                content);
+        }
+
+        public void on_buttonSavePageClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.savePage(this.pageId);
+        }
+
+        protected void savePage(
+            int _pageId)
+        {
+            int pageId = _pageId;
+            string content = this.getSelectedPageContent();
+
+            this.model.updateTempPageContent(
+                pageId,
+                content);
+
+            this.model.writeTempPageContent(
+                pageId);
+        }
+
+        protected string getSelectedPageContent()
+        {
+            return this.view.textBoxPagesGetContent();
+        }
+
+        public void on_pageTreeTreeNodeClickedBefore(
+            object _sender,
+            TreeViewCancelEventArgs _e)
+        {
+            string content = this.getSelectedPageContent();
+
+            this.model.updateTempPageContent(
+                this.pageId,
+                content);
         }
     }
 }

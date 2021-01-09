@@ -19,6 +19,11 @@ namespace Hagyma
         public event ButtonClicked buttonSaveCSSClicked;
         public event ButtonClicked buttonSaveJSClicked;
 
+        public event TreeNodeClicked pageTreeTreeNodeClicked;
+        public event ButtonClicked buttonSavePageClicked;
+        public event TreeNodeClickedBefore pageTreeTreeNodeClickedBefore;
+        public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();
@@ -89,6 +94,9 @@ namespace Hagyma
         public void clearPagesTabPage();
         public void clearCSSTabPage();
         public void clearJSTabPage();
+        public string textBoxPagesGetContent();
+        public void textBoxPagesSetContent(string _content);
+        //public void setSelectedPageTreeTreeNode(TreeNode _treeNode);
 
     }
 }

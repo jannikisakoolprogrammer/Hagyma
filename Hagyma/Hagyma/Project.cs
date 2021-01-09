@@ -517,6 +517,21 @@ namespace Hagyma
                 _js);
         }
 
+        public void updatePageContent(
+            int _pageId,
+            string _content)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_page_update_content_by_id;
+            command.Parameters.AddWithValue(
+                "@id",
+                _pageId);
+            command.Parameters.AddWithValue(
+                "@content",
+                _content);
+            command.ExecuteNonQuery();
+        }
 
     }
 }

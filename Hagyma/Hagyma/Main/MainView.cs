@@ -22,6 +22,11 @@ namespace Hagyma
         public event ButtonClicked buttonSaveCSSClicked;
         public event ButtonClicked buttonSaveJSClicked;
 
+        public event TreeNodeClicked pageTreeTreeNodeClicked;        
+        public event ButtonClicked buttonSavePageClicked;
+        public event TreeNodeClickedBefore pageTreeTreeNodeClickedBefore;
+        public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -382,6 +387,78 @@ namespace Hagyma
         public void clearJSTabPage()
         {
             this.textBoxJS.Clear();
+        }
+
+        private void treeViewPages_NodeMouseClick(
+            object _sender,
+            TreeNodeMouseClickEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                return;
+                this.pageTreeTreeNodeClicked(
+                    _sender,
+                    _e);
+            }
+        }
+        /*
+        public void setSelectedPageTreeTreeNode(
+            TreeNode _treeNode)
+        {
+            this.treeViewPages.SelectedNode = _treeNode;
+        }
+
+        public TreeNode getSelectedPageTreeTreeNode()
+        {
+            return this.treeViewPages.SelectedNode;
+        }
+        */
+
+        private void buttonSavePage_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonSavePageClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public string textBoxPagesGetContent()
+        {
+            return this.textBoxPage.Text;
+        }
+
+        public void textBoxPagesSetContent(
+            string _content)
+        {
+            this.textBoxPage.Text = _content;
+        }
+
+        private void treeViewPages_BeforeSelect(
+            object _sender,
+            TreeViewCancelEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.pageTreeTreeNodeClickedBefore(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void treeViewPages_AfterSelect(
+            object _sender,
+            TreeViewEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.pageTreeNodeAfterClicked(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

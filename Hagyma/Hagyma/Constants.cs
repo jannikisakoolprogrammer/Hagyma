@@ -78,6 +78,11 @@ namespace Hagyma
             sort_id = @sort_id
         WHERE
             id = @id;";
+        public const string database_table_page_update_content_by_id = @"
+        UPDATE page SET
+            content = @content
+        WHERE
+            id = @id;";
 
         // Settings for table "settings"
         public const string database_table_settings = "settings";
