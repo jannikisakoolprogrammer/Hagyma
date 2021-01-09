@@ -377,6 +377,7 @@ namespace Hagyma
         public void clearPagesTabPage()
         {
             this.treeViewPages.Nodes.Clear();
+            this.textBoxPage.Clear();
         }
         public void clearCSSTabPage()
         {

@@ -164,6 +164,8 @@ namespace Hagyma
             object _sender,
             EventArgs _e)
         {
+            this.model.syncTempPagesWithDBPages();
+
             this.view.Hide();
         }
     }

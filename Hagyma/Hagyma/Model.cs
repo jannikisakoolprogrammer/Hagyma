@@ -223,5 +223,29 @@ namespace Hagyma
                     page.getContent());
             }
         }
+
+        public void syncTempPagesWithDBPages()
+        {
+            System.Collections.ArrayList dbPages = this.getProject().getPages();
+            int[] idPagesDB = new int[dbPages.Count];
+            foreach (System.Object[] page in dbPages)
+            {
+                idPagesDB.Append(int.Parse(
+                        page.GetValue(0).ToString()));
+            }
+
+            int[] idTempPages = new int[this.tempPages.Count];
+            foreach (KeyValuePair<int, Page> entry in this.tempPages)
+            {
+                idTempPages.Append(entry.Key);
+            }
+
+            System.Collections.Generic.IEnumerable<int> pagesToDelete = idTempPages.Except(idPagesDB);
+
+            foreach (int id in pagesToDelete)
+            {
+                this.tempPages.Remove(id);
+            }
+        }
     }
 }

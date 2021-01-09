@@ -127,8 +127,16 @@ namespace Hagyma
             object _sender,
             EventArgs _e)
         {
+            // Save last page to temporary store.
+            if (this.pageId != -1)
+            {
+                this.tempSavePage();
+            }
+
             PageTreePresenter pageTreePresenter = new PageTreePresenter(this);
             pageTreePresenter.run();
+            
+            this.loadPages();
         }
 
         protected void onNoProjectLoaded()
@@ -203,6 +211,7 @@ namespace Hagyma
 
         protected void unloadView()
         {
+            this.resetPageId();
             this.view.clearPagesTabPage();
             this.view.clearCSSTabPage();
             this.view.clearJSTabPage();
@@ -210,9 +219,16 @@ namespace Hagyma
 
         protected void loadPages()
         {
+            this.resetPageId();
+            this.view.clearPagesTabPage();
             this.getPageStructureData();
             this.preparePageStructureData();
             this.updatePageTree();
+        }
+
+        protected void resetPageId()
+        {
+            this.pageId = -1;
         }
 
         protected void getPageStructureData()
