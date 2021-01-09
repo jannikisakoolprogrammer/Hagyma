@@ -14,10 +14,12 @@ namespace Hagyma
         TreeNode[] treeNodesPages;
 
         int pageId;
+        int previousPageId;
 
         public PresenterMain() : base()
         {
             this.onNoProjectLoaded();
+            this.pageId = -1;
         }
 
         protected override void initModel()
@@ -45,9 +47,7 @@ namespace Hagyma
             this.view.buttonSaveCSSClicked += this.on_buttonSaveCSSClick;
             this.view.buttonSaveJSClicked += this.on_buttonSaveJSClick;
 
-            //this.view.pageTreeTreeNodeClicked += this.on_pageTreeTreeNodeClick;
             this.view.buttonSavePageClicked += this.on_buttonSavePageClick;
-            this.view.pageTreeTreeNodeClickedBefore += this.on_pageTreeTreeNodeClickedBefore;
             this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
         }
 
@@ -285,27 +285,34 @@ namespace Hagyma
             this.saveJS();
         }
 
-        public void on_pageTreeTreeNodeClick(
-            object _sender,
-            TreeNodeMouseClickEventArgs _e)
-        {
-            this.pageId = int.Parse(_e.Node.Tag.ToString());
-            this.loadPage();
-        }
-
         public void on_pageTreeNodeAfterClick(
             object _sender,
             TreeViewEventArgs _e)
         {
-            this.pageId = int.Parse(_e.Node.Tag.ToString());
+            // Save previous page before we open new page.
+            if (this.pageId != -1)
+            {
+                this.tempSavePage();
+            }
+
+            pageId = int.Parse(
+                _e.Node.Tag.ToString());
+
+            this.setPageId(
+                pageId);
+
             this.loadPage();
+        }
+
+        protected void setPageId(
+            int _pageId)
+        {
+            this.pageId = _pageId;
         }
 
         protected void loadPage()
         {
-            this.model.loadPage(
-                this.pageId);
-            string content = this.model.getPageContent(
+            string content = this.model.loadPage(
                 this.pageId);
             this.view.textBoxPagesSetContent(
                 content);
@@ -315,21 +322,19 @@ namespace Hagyma
             object _sender,
             EventArgs _e)
         {
-            this.savePage(this.pageId);
+            this.savePage();
         }
 
-        protected void savePage(
-            int _pageId)
+        protected void savePage()
         {
-            int pageId = _pageId;
             string content = this.getSelectedPageContent();
 
             this.model.updateTempPageContent(
-                pageId,
+                this.pageId,
                 content);
 
             this.model.writeTempPageContent(
-                pageId);
+                this.pageId);
         }
 
         protected string getSelectedPageContent()
@@ -337,12 +342,9 @@ namespace Hagyma
             return this.view.textBoxPagesGetContent();
         }
 
-        public void on_pageTreeTreeNodeClickedBefore(
-            object _sender,
-            TreeViewCancelEventArgs _e)
+        protected void tempSavePage()
         {
             string content = this.getSelectedPageContent();
-
             this.model.updateTempPageContent(
                 this.pageId,
                 content);

@@ -19,9 +19,7 @@ namespace Hagyma
         public event ButtonClicked buttonSaveCSSClicked;
         public event ButtonClicked buttonSaveJSClicked;
 
-        public event TreeNodeClicked pageTreeTreeNodeClicked;
         public event ButtonClicked buttonSavePageClicked;
-        public event TreeNodeClickedBefore pageTreeTreeNodeClickedBefore;
         public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
 
         public void enableEditToolStripMenuItem();

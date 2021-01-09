@@ -75,9 +75,7 @@ namespace Hagyma
             this.treeViewPages.Name = "treeViewPages";
             this.treeViewPages.Size = new System.Drawing.Size(143, 271);
             this.treeViewPages.TabIndex = 4;
-            this.treeViewPages.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewPages_BeforeSelect);
             this.treeViewPages.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPages_AfterSelect);
-            this.treeViewPages.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewPages_NodeMouseClick);
             // 
             // textBoxPage
             // 
