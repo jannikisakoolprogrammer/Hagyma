@@ -22,6 +22,8 @@ namespace Hagyma
         public event ButtonClicked buttonSavePageClicked;
         public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
 
+        public event MenuItemClicked filesClicked;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();

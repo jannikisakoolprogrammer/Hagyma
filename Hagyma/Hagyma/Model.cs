@@ -247,5 +247,19 @@ namespace Hagyma
                 this.tempPages.Remove(id);
             }
         }
+
+        public void copyFile(
+            string _filePath)
+        {
+            this.getProject().copyFile(
+                _filePath);
+        }
+
+        public System.Object[] getFileList()
+        {
+            System.Object[] files =
+                this.getProject().getFiles();
+            return files;
+        }
     }
 }

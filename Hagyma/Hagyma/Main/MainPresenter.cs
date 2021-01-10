@@ -49,6 +49,10 @@ namespace Hagyma
 
             this.view.buttonSavePageClicked += this.on_buttonSavePageClick;
             this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
+
+            this.view.filesClicked += this.on_filesClick;
+
+            //this.view.fil
         }
 
         /// <summary>
@@ -364,6 +368,15 @@ namespace Hagyma
             this.model.updateTempPageContent(
                 this.pageId,
                 content);
+        }
+
+        public void on_filesClick(
+            object _sender,
+            EventArgs _e)
+        {
+            FilesPresenter localPresenter = new FilesPresenter(
+                this);
+            localPresenter.run();
         }
     }
 }

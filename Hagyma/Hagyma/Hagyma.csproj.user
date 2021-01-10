@@ -7,6 +7,9 @@
     <Compile Update="EditPage\EditPageView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Files\FilesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main\MainView.cs">
       <SubType>Form</SubType>
     </Compile>

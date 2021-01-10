@@ -192,6 +192,8 @@ namespace Hagyma
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
             this.filesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.filesToolStripMenuItem.Text = "Files";
+            this.filesToolStripMenuItem.Click += new System.EventHandler(
+                this.filesToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 

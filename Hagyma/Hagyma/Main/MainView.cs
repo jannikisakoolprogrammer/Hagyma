@@ -25,6 +25,8 @@ namespace Hagyma
         public event ButtonClicked buttonSavePageClicked;
         public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
 
+        public event MenuItemClicked filesClicked;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -418,6 +420,18 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.pageTreeNodeAfterClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void filesToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.filesClicked(
                     _sender,
                     _e);
             }

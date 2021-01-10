@@ -533,5 +533,40 @@ namespace Hagyma
             command.ExecuteNonQuery();
         }
 
+        public void copyFile(
+            string _filePath)
+        {
+            string fileName = System.IO.Path.GetFileName(
+                _filePath);
+
+            string destpath = System.IO.Path.Combine(
+                this.dirPathResources,
+                fileName);
+
+            System.IO.File.Copy(
+                _filePath,
+                destpath,
+                true);
+        }
+
+        public System.Object[] getFiles()
+        {
+            IEnumerable<string> fileList = System.IO.Directory.GetFiles(
+                this.dirPathResources).Select(System.IO.Path.GetFileName);
+
+            IEnumerator<string> fileListEnumerator = fileList.GetEnumerator();
+
+            System.Object[] files = new System.Object[fileList.Count()];
+
+            int count = 0;
+            while (fileListEnumerator.MoveNext())
+            {
+                files[count] = fileListEnumerator.Current;
+                count++;
+            }
+
+            return files;
+        }
+
     }
 }
