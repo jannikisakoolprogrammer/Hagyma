@@ -27,6 +27,7 @@ namespace Hagyma
 
         public event MenuItemClicked filesClicked;
         public event MenuItemClicked settingsClicked;
+        public event MenuItemClicked generateClicked;
 
         public ViewMain()
         {
@@ -445,6 +446,18 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.settingsClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void generateToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.generateClicked(
                     _sender,
                     _e);
             }

@@ -24,6 +24,7 @@ namespace Hagyma
 
         public event MenuItemClicked filesClicked;
         public event MenuItemClicked settingsClicked;
+        public event MenuItemClicked generateClicked;
 
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();

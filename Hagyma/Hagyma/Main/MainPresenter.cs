@@ -52,6 +52,7 @@ namespace Hagyma
 
             this.view.filesClicked += this.on_filesClick;
             this.view.settingsClicked += this.on_settingsClick;
+            this.view.generateClicked += this.on_generateClick;
 
             //this.view.fil
         }
@@ -387,6 +388,14 @@ namespace Hagyma
             SettingsPresenter settingsPresenter = new SettingsPresenter(
                 this);
             settingsPresenter.run();
+
+        }
+
+        public void on_generateClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.model.generate();
 
         }
     }

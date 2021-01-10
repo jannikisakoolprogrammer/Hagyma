@@ -219,6 +219,8 @@ namespace Hagyma
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.generateToolStripMenuItem.Text = "Generate";
+            this.generateToolStripMenuItem.Click += new System.EventHandler(
+                this.generateToolStripMenuItem_Click);
             // 
             // uploadToolStripMenuItem
             // 

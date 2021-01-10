@@ -280,5 +280,10 @@ namespace Hagyma
         {
             return this.getProject().readSettings();
         }
+
+        public void generate()
+        {
+            this.getProject().generate();
+        }
     }
 }

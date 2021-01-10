@@ -689,5 +689,15 @@ namespace Hagyma
             command.ExecuteNonQuery();
         }
 
+        public void generate()
+        {
+            System.Collections.ArrayList pages = this.getPages(true);
+            int nPages = pages.Count;
+            foreach (System.Object[] pageData in pages)
+            {
+                string content = pageData.GetValue(4).ToString();
+            }
+        }
+
     }
 }
