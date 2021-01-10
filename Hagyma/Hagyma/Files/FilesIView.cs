@@ -11,5 +11,7 @@ namespace Hagyma
 
         public void listBoxFilesRefresh(
             System.Object[] _elements);
+
+        public System.Object listBoxGetSelection();
     }
 }

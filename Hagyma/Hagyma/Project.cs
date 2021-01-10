@@ -568,5 +568,15 @@ namespace Hagyma
             return files;
         }
 
+        public void deleteFile(
+            string _fileName)
+        {
+            string filePath = System.IO.Path.Combine(
+                this.dirPathResources,
+                _fileName);
+            System.IO.File.Delete(
+                filePath);
+        }
+
     }
 }

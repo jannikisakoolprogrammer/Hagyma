@@ -57,6 +57,11 @@ namespace Hagyma
             object _sender,
             EventArgs _e)
         {
+            string fileName = this.view.listBoxGetSelection().ToString();
+
+            this.model.deleteFile(
+                fileName);
+
             System.Object[] fileList = this.model.getFileList();
             this.view.listBoxFilesRefresh(fileList);
         }

@@ -51,7 +51,6 @@ namespace Hagyma
             this.buttonImport.TabIndex = 1;
             this.buttonImport.Text = "Import";
             this.buttonImport.UseVisualStyleBackColor = true;
-            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             this.buttonImport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImport_MouseClick);
             // 
             // buttonDelete
@@ -62,6 +61,7 @@ namespace Hagyma
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // FilesView
             // 

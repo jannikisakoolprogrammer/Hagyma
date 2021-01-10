@@ -26,6 +26,11 @@ namespace Hagyma
                 _elements);
         }
 
+        public System.Object listBoxGetSelection()
+        {
+            return this.listBoxFiles.SelectedItem;
+        }
+
         private void buttonImport_MouseClick(
             object _sender,
             MouseEventArgs _e)
@@ -38,7 +43,7 @@ namespace Hagyma
             }
         }
 
-        private void buttonImport_Click(
+        private void buttonDelete_Click(
             object _sender,
             EventArgs _e)
         {

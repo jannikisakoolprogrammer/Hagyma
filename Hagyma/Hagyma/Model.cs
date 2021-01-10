@@ -261,5 +261,12 @@ namespace Hagyma
                 this.getProject().getFiles();
             return files;
         }
+
+        public void deleteFile(
+            string _fileName)
+        {
+            this.getProject().deleteFile(
+                _fileName);
+        }
     }
 }
