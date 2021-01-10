@@ -88,15 +88,15 @@ namespace Hagyma
         public const string database_table_settings = "settings";
         public const string database_table_settings_create = @"
         CREATE TABLE IF NOT EXISTS settings(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            project_name TEXT NOT NULL,
-            test_server_hostname TEXT NOT NULL,
+            project_name TEXT,
+            test_server_hostname TEXT,
             test_server_port INTEGER,
             ftp_server_address TEXT,
             ftp_server_port INTEGER,
             ftp_server_base_dir TEXT,
             ftp_server_username TEXT,
-            ftp_server_password TEXT);";
+            ftp_server_password TEXT,
+            ftp_force_complete_upload INTEGER);";
         public const string database_table_settings_insert = @"
         INSERT INTO settings(
             project_name,
@@ -106,16 +106,18 @@ namespace Hagyma
             ftp_server_port,
             ftp_server_base_dir,
             ftp_server_username,
-            ftp_server_password)
+            ftp_server_password,
+            ftp_force_complete_upload)
         VALUES(
-            project_name = @project_name,
-            test_server_hostname = @test_server_hostname,
-            test_server_port = @test_server_port,
-            ftp_server_address = @ftp_server_address,
-            ftp_server_port = @ftp_server_port,
-            ftp_server_base_dir = @ftp_server_base_dir,
-            ftp_server_username = @ftp_server_username,
-            ftp_server_password = @ftp_server_password);";
+            @project_name,
+            @test_server_hostname,
+            @test_server_port,
+            @ftp_server_address,
+            @ftp_server_port,
+            @ftp_server_base_dir,
+            @ftp_server_username,
+            @ftp_server_password,
+            @ftp_force_complete_upload);";
         public const string database_table_settings_update = @"
         UPDATE settings SET
             project_name = @project_name,
@@ -125,14 +127,12 @@ namespace Hagyma
             ftp_server_port = @ftp_server_port,
             ftp_server_base_dir = @ftp_server_base_dir,
             ftp_server_username = @ftp_server_username,
-            ftp_server_password = @ftp_server_password
-        WHERE
-            id = @id;";
+            ftp_server_password = @ftp_server_password,
+            ftp_force_complete_upload = @ftp_force_complete_upload";
         public const string database_table_settings_read = @"
         SELECT * FROM settings;";
         public const string database_table_settings_delete = @"
-        DELETE FROM settings
-            WHERE id = @Id;";
+        DELETE FROM settings;";
 
         // Other constants for specific website project.
         // All projects are contained in a projects dir.

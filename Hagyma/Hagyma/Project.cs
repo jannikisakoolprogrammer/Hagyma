@@ -66,6 +66,8 @@ namespace Hagyma
 
                 // Create tables.
                 this.createTables();
+
+                this.insertSettings();
             }
             else
             {
@@ -154,12 +156,14 @@ namespace Hagyma
 
         protected void createCSSFile()
         {
-            System.IO.File.Create(this.filePathCSS);
+            System.IO.FileStream file = System.IO.File.Create(this.filePathCSS);
+            file.Close();
         }
 
         protected void createJSFile()
         {
-            System.IO.File.Create(this.filePathJS);
+            System.IO.FileStream file = System.IO.File.Create(this.filePathJS);
+            file.Close();
         }
 
         protected void createConnection()
@@ -576,6 +580,113 @@ namespace Hagyma
                 _fileName);
             System.IO.File.Delete(
                 filePath);
+        }
+
+        public void writeSettings(
+            Settings _settings)
+        {
+            this.updateSettings(
+                _settings);
+        }
+
+        public Settings readSettings()
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_settings_read;
+            SqliteDataReader dataReader = command.ExecuteReader();
+            System.Object[] values = new System.Object[dataReader.FieldCount];
+            dataReader.Read();
+            dataReader.GetValues(values);
+
+            Settings settings = new Settings();
+            settings.projectName = values.GetValue(0).ToString();
+            settings.testServerHostname = values.GetValue(1).ToString();
+            settings.testServerPort = int.Parse(values.GetValue(2).ToString());
+            settings.ftpServerAddress = values.GetValue(3).ToString();
+            settings.ftpServerPort = int.Parse(values.GetValue(4).ToString());
+            settings.ftpServerBaseDir = values.GetValue(5).ToString();
+            settings.ftpServerUsername = values.GetValue(6).ToString();
+            settings.ftpServerPassword = values.GetValue(7).ToString();
+
+            int force = int.Parse(values.GetValue(8).ToString());
+            settings.ftpForceCompleteUpload = System.Convert.ToBoolean(force);
+
+            return settings;
+        }
+
+        protected void insertSettings()
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_settings_insert;
+            
+            command.Parameters.AddWithValue(
+                "@project_name",
+                "");            
+            command.Parameters.AddWithValue(
+                "@test_server_hostname",
+                "localhost");
+            command.Parameters.AddWithValue(
+                "@test_server_port",
+                8080);
+            command.Parameters.AddWithValue(
+                "@ftp_server_address",
+                "");
+            command.Parameters.AddWithValue(
+                "@ftp_server_port",
+                20);
+            command.Parameters.AddWithValue(
+                "@ftp_server_base_dir",
+                "");
+            command.Parameters.AddWithValue(
+                "@ftp_server_username",
+                "");
+            command.Parameters.AddWithValue(
+                "@ftp_server_password",
+                "");
+            command.Parameters.AddWithValue(
+                "@ftp_force_complete_upload",
+                false);
+
+            command.ExecuteNonQuery();
+        }
+
+        protected void updateSettings(
+            Settings _settings)
+        {
+            SqliteCommand command = new SqliteCommand();
+            command.Connection = this.sqliteConnection;
+            command.CommandText = Constants.database_table_settings_update;
+            command.Parameters.AddWithValue(
+                "@project_name",
+                _settings.projectName);
+            command.Parameters.AddWithValue(
+                "@test_server_hostname",
+                _settings.testServerHostname);
+            command.Parameters.AddWithValue(
+                "@test_server_port",
+                _settings.testServerPort);
+            command.Parameters.AddWithValue(
+                "@ftp_server_address",
+                _settings.ftpServerAddress);
+            command.Parameters.AddWithValue(
+                "@ftp_server_port",
+                _settings.ftpServerPort);
+            command.Parameters.AddWithValue(
+                "@ftp_server_base_dir",
+                _settings.ftpServerBaseDir);
+            command.Parameters.AddWithValue(
+                "@ftp_server_username",
+                _settings.ftpServerUsername);
+            command.Parameters.AddWithValue(
+                "@ftp_server_password",
+                _settings.ftpServerPassword);
+            command.Parameters.AddWithValue(
+                "@ftp_force_complete_upload",
+                _settings.ftpForceCompleteUpload);
+
+            command.ExecuteNonQuery();
         }
 
     }

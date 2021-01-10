@@ -268,5 +268,17 @@ namespace Hagyma
             this.getProject().deleteFile(
                 _fileName);
         }
+
+        public void writeSettings(
+            Settings _settings)
+        {
+            this.getProject().writeSettings(
+                _settings);
+        }
+
+        public Settings readSettings()
+        {
+            return this.getProject().readSettings();
+        }
     }
 }

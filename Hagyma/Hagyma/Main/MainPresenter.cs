@@ -51,6 +51,7 @@ namespace Hagyma
             this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
 
             this.view.filesClicked += this.on_filesClick;
+            this.view.settingsClicked += this.on_settingsClick;
 
             //this.view.fil
         }
@@ -377,6 +378,16 @@ namespace Hagyma
             FilesPresenter localPresenter = new FilesPresenter(
                 this);
             localPresenter.run();
+        }
+
+        public void on_settingsClick(
+            object _sender,
+            EventArgs _e)
+        {
+            SettingsPresenter settingsPresenter = new SettingsPresenter(
+                this);
+            settingsPresenter.run();
+
         }
     }
 }
