@@ -691,12 +691,94 @@ namespace Hagyma
 
         public void generate()
         {
+            // TODO:  Delete all ".html" files before generating them.
             System.Collections.ArrayList pages = this.getPages(true);
             int nPages = pages.Count;
+            bool firstPage = true;
+            Settings settings = this.readSettings();
             foreach (System.Object[] pageData in pages)
             {
+                string html = Constants.html_template;
+                string navigation = this.generateNavigation();
                 string content = pageData.GetValue(4).ToString();
+
+                html = html.Replace(
+                    "#TITLE#",
+                    settings.projectName);
+                html = html.Replace(
+                    "#NAVIGATION#",
+                    navigation);
+                html = html.Replace(
+                    "#CONTENT#",
+                    content);
+
+                string name = pageData.GetValue(3).ToString();
+
+                // Write file.
+                string filePathPage = "";
+                string fileName = "";
+                if (firstPage == true)
+                {
+                    fileName = "index.html";
+                    filePathPage = System.IO.Path.Combine(
+                        this.dirPathOutput,
+                        "index.html");
+                    firstPage = false;
+                }
+                else
+                {
+                    fileName = String.Format(
+                        "{0}.html",
+                        name);
+                    filePathPage = System.IO.Path.Combine(
+                        this.dirPathOutput,
+                        fileName);
+                }
+
+                System.IO.File.WriteAllText(
+                    filePathPage,
+                    html);
+
             }
+        }
+
+        protected string generateNavigation()
+        {
+            string html = "<ul>";
+
+            
+            System.Collections.ArrayList pages = this.getPages(true);
+            int nPages = pages.Count;
+            bool firstPage = true;
+            Settings settings = this.readSettings();
+            string link_name = "";
+            foreach (System.Object[] pageData in pages)
+            {
+                string name = pageData.GetValue(3).ToString();
+                string link = "<li><a href='/{0}.html'>{1}</a></li>";
+
+                if (firstPage == true)
+                {
+                    link_name = "index";
+                    firstPage = false;
+                }
+                else
+                {
+                    link_name = name;
+                }
+
+                link = string.Format(
+                    link,
+                    link_name,
+                    name);
+
+                html += link;
+            }
+
+            html += "</ul>";
+
+            return html;
+
         }
 
     }
