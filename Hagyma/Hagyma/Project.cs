@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HeyRed.MarkdownSharp;
 
 namespace Hagyma
 {
@@ -696,11 +697,16 @@ namespace Hagyma
             int nPages = pages.Count;
             bool firstPage = true;
             Settings settings = this.readSettings();
+
+            Markdown mark = new Markdown();
+
             foreach (System.Object[] pageData in pages)
             {
                 string html = Constants.html_template;
                 string navigation = this.generateNavigation();
                 string content = pageData.GetValue(4).ToString();
+
+                content = mark.Transform(content);
 
                 html = html.Replace(
                     "#TITLE#",
