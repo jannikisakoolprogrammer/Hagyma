@@ -162,7 +162,7 @@ namespace Hagyma
                 <title>#TITLE#</title>
 	            <meta charset='utf-8' content-type='text/html' />
 		        <link rel = 'stylesheet' href='#CSS_FILE#'  type='text/css' />
-                <script src='#JS_FILE'></script>
+                <script src='#JS_FILE#'></script>
             </head>
             <body>
                 <navigation>

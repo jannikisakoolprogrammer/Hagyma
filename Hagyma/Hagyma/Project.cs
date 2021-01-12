@@ -692,7 +692,13 @@ namespace Hagyma
 
         public void generate()
         {
-            // TODO:  Delete all ".html" files before generating them.
+            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(
+                this.dirPathOutput);
+            foreach (System.IO.FileInfo file in directoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
+
             System.Collections.ArrayList pages = this.getPages(true);
             int nPages = pages.Count;
             bool firstPage = true;
@@ -708,6 +714,12 @@ namespace Hagyma
 
                 content = mark.Transform(content);
 
+                html = html.Replace(
+                    "#CSS_FILE#",
+                    "/css/css.css");
+                html = html.Replace(
+                    "#JS_FILE#",
+                    "js/js.js");
                 html = html.Replace(
                     "#TITLE#",
                     settings.projectName);

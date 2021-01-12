@@ -30,7 +30,7 @@ namespace Hagyma
 
         public void stopServer()
         {
-            this.Kill();
+            this.Kill(true);
         }
     }
 }
