@@ -29,6 +29,9 @@ namespace Hagyma
         public event MenuItemClicked settingsClicked;
         public event MenuItemClicked generateClicked;
 
+        public event MenuItemClicked startTestServerClicked;
+        public event MenuItemClicked stopTestServerClicked;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -458,6 +461,30 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.generateClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void startTestserverToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.startTestServerClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void stopTestserverToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.stopTestServerClicked(
                     _sender,
                     _e);
             }

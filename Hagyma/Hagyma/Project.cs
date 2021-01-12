@@ -787,5 +787,10 @@ namespace Hagyma
 
         }
 
+        public string getOutputDirectory()
+        {
+            return this.dirPathOutput;
+        }
+
     }
 }

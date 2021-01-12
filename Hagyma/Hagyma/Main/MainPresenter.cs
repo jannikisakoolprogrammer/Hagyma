@@ -14,7 +14,7 @@ namespace Hagyma
         TreeNode[] treeNodesPages;
 
         int pageId;
-        int previousPageId;
+        PythonWebServerProcess pythonWebServerProcess;
 
         public PresenterMain() : base()
         {
@@ -53,6 +53,9 @@ namespace Hagyma
             this.view.filesClicked += this.on_filesClick;
             this.view.settingsClicked += this.on_settingsClick;
             this.view.generateClicked += this.on_generateClick;
+
+            this.view.startTestServerClicked += this.on_startTestServerClick;
+            this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
             //this.view.fil
         }
@@ -397,6 +400,22 @@ namespace Hagyma
         {
             this.model.generate();
 
+        }
+
+        public void on_startTestServerClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.pythonWebServerProcess = new PythonWebServerProcess(
+                this.model.readSettings(),
+                this.getProject().getOutputDirectory());
+        }
+
+        public void on_stopTestServerClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.pythonWebServerProcess.stopServer();
         }
     }
 }

@@ -41,3 +41,4 @@ Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.AddPageView.resources
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.EditPageView.resources
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.FilesView.resources
 Y:\Repos\Hagyma\Hagyma\obj\Debug\netcoreapp3.1\Hagyma.SettingsView.resources
+Y:\Repos\Hagyma\Hagyma\bin\Debug\netcoreapp3.1\Markdown.dll

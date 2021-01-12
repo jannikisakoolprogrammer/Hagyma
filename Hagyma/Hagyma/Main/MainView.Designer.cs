@@ -233,12 +233,16 @@ namespace Hagyma
             this.startTestserverToolStripMenuItem.Name = "startTestserverToolStripMenuItem";
             this.startTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.startTestserverToolStripMenuItem.Text = "Start testserver";
+            this.startTestserverToolStripMenuItem.Click += new System.EventHandler(
+                this.startTestserverToolStripMenuItem_Click);
             // 
             // stopTestserverToolStripMenuItem
             // 
             this.stopTestserverToolStripMenuItem.Name = "stopTestserverToolStripMenuItem";
             this.stopTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.stopTestserverToolStripMenuItem.Text = "Stop testserver";
+            this.stopTestserverToolStripMenuItem.Click += new System.EventHandler(
+                this.stopTestserverToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
