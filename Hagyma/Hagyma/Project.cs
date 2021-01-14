@@ -19,6 +19,11 @@ namespace Hagyma
         protected string dirPathJS;
         protected string filePathJS;
 
+        protected string filePathJSComparisonFile;
+        protected string filePathCSSComparisionFile;
+        protected string filePathOutputComparisionFile;
+        protected string filePathResourcesComparisionFile;
+
         protected SqliteConnection sqliteConnection;
 
         protected int newSortId;
@@ -75,6 +80,9 @@ namespace Hagyma
                 // Connect to db.
                 this.createConnection();
                 this.connect();
+
+                ComparisonFile comparisionFile = new ComparisonFile(
+                    this.filePathCSSComparisionFile);
             }          
         }
 
@@ -113,7 +121,23 @@ namespace Hagyma
             this.filePathJS = System.IO.Path.Combine(
                 this.dirPathJS,
                 Constants.js_file);
-    }
+
+            this.filePathCSSComparisionFile = System.IO.Path.Combine(
+                this.dirPathCSS,
+                Constants.comparison_file);
+
+            this.filePathJSComparisonFile = System.IO.Path.Combine(
+                this.dirPathJS,
+                Constants.comparison_file);
+
+            this.filePathOutputComparisionFile = System.IO.Path.Combine(
+                this.dirPathOutput,
+                Constants.comparison_file);
+
+            this.filePathResourcesComparisionFile = System.IO.Path.Combine(
+                this.dirPathResources,
+                Constants.comparison_file);
+        }
 
         protected void createProjectDirectories()
         {
@@ -153,6 +177,10 @@ namespace Hagyma
         {
             this.createCSSFile();
             this.createJSFile();
+            this.createComparisionFileCSS();
+            this.createComparisionFileJS();
+            this.createComparisionFileOutput();
+            this.createComparisionFileResources();
         }
 
         protected void createCSSFile()
@@ -164,6 +192,34 @@ namespace Hagyma
         protected void createJSFile()
         {
             System.IO.FileStream file = System.IO.File.Create(this.filePathJS);
+            file.Close();
+        }
+
+        protected void createComparisionFileJS()
+        {
+            System.IO.FileStream file = System.IO.File.Create(
+                this.filePathJSComparisonFile);
+            file.Close();
+        }
+
+        protected void createComparisionFileCSS()
+        {
+            System.IO.FileStream file = System.IO.File.Create(
+                this.filePathCSSComparisionFile);
+            file.Close();
+        }
+
+        protected void createComparisionFileOutput()
+        {
+            System.IO.FileStream file = System.IO.File.Create(
+                this.filePathOutputComparisionFile);
+            file.Close();
+        }
+
+        protected void createComparisionFileResources()
+        {
+            System.IO.FileStream file = System.IO.File.Create(
+                this.filePathResourcesComparisionFile);
             file.Close();
         }
 
