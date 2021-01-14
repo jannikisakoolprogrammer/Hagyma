@@ -52,6 +52,7 @@ namespace Hagyma
             this.startTestserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopTestserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.htmlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tabControlEditor = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -192,16 +193,14 @@ namespace Hagyma
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
             this.filesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.filesToolStripMenuItem.Text = "Files";
-            this.filesToolStripMenuItem.Click += new System.EventHandler(
-                this.filesToolStripMenuItem_Click);
+            this.filesToolStripMenuItem.Click += new System.EventHandler(this.filesToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(
-                this.settingsToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // actionsToolStripMenuItem
             // 
@@ -219,8 +218,7 @@ namespace Hagyma
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.generateToolStripMenuItem.Text = "Generate";
-            this.generateToolStripMenuItem.Click += new System.EventHandler(
-                this.generateToolStripMenuItem_Click);
+            this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
             // uploadToolStripMenuItem
             // 
@@ -233,22 +231,29 @@ namespace Hagyma
             this.startTestserverToolStripMenuItem.Name = "startTestserverToolStripMenuItem";
             this.startTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.startTestserverToolStripMenuItem.Text = "Start testserver";
-            this.startTestserverToolStripMenuItem.Click += new System.EventHandler(
-                this.startTestserverToolStripMenuItem_Click);
+            this.startTestserverToolStripMenuItem.Click += new System.EventHandler(this.startTestserverToolStripMenuItem_Click);
             // 
             // stopTestserverToolStripMenuItem
             // 
             this.stopTestserverToolStripMenuItem.Name = "stopTestserverToolStripMenuItem";
             this.stopTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.stopTestserverToolStripMenuItem.Text = "Stop testserver";
-            this.stopTestserverToolStripMenuItem.Click += new System.EventHandler(
-                this.stopTestserverToolStripMenuItem_Click);
+            this.stopTestserverToolStripMenuItem.Click += new System.EventHandler(this.stopTestserverToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.htmlMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // htmlMenuItem
+            // 
+            this.htmlMenuItem.Name = "htmlMenuItem";
+            this.htmlMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.htmlMenuItem.Text = "HTML";
+            this.htmlMenuItem.Click += new System.EventHandler(this.htmlMenuItem_Click);
             // 
             // menuStrip2
             // 
@@ -403,6 +408,7 @@ namespace Hagyma
         private System.Windows.Forms.ToolStripMenuItem startTestserverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopTestserverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem htmlMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.TabControl tabControlEditor;
         private System.Windows.Forms.TabPage tabPage1;

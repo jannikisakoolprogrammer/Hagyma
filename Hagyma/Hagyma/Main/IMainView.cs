@@ -28,6 +28,8 @@ namespace Hagyma
         public event MenuItemClicked startTestServerClicked;
         public event MenuItemClicked stopTestServerClicked;
 
+        public event MenuItemClicked htmlMenuItemClicked;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();
@@ -100,7 +102,6 @@ namespace Hagyma
         public void clearJSTabPage();
         public string textBoxPagesGetContent();
         public void textBoxPagesSetContent(string _content);
-        //public void setSelectedPageTreeTreeNode(TreeNode _treeNode);
 
     }
 }

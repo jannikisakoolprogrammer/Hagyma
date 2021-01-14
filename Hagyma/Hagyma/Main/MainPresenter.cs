@@ -57,6 +57,8 @@ namespace Hagyma
             this.view.startTestServerClicked += this.on_startTestServerClick;
             this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
+            this.view.htmlMenuItemClicked += this.on_htmlMenuItemClick;
+
             //this.view.fil
         }
 
@@ -416,6 +418,16 @@ namespace Hagyma
             EventArgs _e)
         {
             this.pythonWebServerProcess.stopServer();
+        }
+
+        public void on_htmlMenuItemClick(
+            object _sender,
+            EventArgs _e)
+        {
+            HTMLView htmlView = new HTMLView();
+            htmlView.setHTMLTemplate(
+                this.model.getProject().getHTML());
+            htmlView.Show();
         }
     }
 }

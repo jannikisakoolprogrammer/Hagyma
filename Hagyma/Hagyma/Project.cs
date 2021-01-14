@@ -81,8 +81,8 @@ namespace Hagyma
                 this.createConnection();
                 this.connect();
 
-                ComparisonFile comparisionFile = new ComparisonFile(
-                    this.filePathCSSComparisionFile);
+                //ComparisonFile comparisionFile = new ComparisonFile(
+                  //  this.filePathCSSComparisionFile);
             }          
         }
 
@@ -858,6 +858,11 @@ namespace Hagyma
         public string getOutputDirectory()
         {
             return this.dirPathOutput;
+        }
+
+        public string getHTML()
+        {
+            return Constants.html_template;
         }
 
     }

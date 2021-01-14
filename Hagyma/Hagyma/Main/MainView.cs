@@ -32,6 +32,8 @@ namespace Hagyma
         public event MenuItemClicked startTestServerClicked;
         public event MenuItemClicked stopTestServerClicked;
 
+        public event MenuItemClicked htmlMenuItemClicked;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -485,6 +487,18 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.stopTestServerClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void htmlMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.htmlMenuItemClicked(
                     _sender,
                     _e);
             }
