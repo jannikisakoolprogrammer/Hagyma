@@ -165,6 +165,7 @@ namespace Hagyma
                 <script src='#JS_FILE#'></script>
             </head>
             <body>
+                <header></header>
                 <navigation>
                     #NAVIGATION#
                 </navigation>
@@ -173,5 +174,7 @@ namespace Hagyma
                 </main>
             </body>
         </html>";
+
+        public const string comparison_file = "comparison.xml";
     }
 }
