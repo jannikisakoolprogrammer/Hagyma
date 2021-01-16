@@ -900,5 +900,28 @@ namespace Hagyma
                 Constants.html_template);
         }
 
+        public string getFTPServerAddress()
+        {
+            Settings settings = this.readSettings();
+            return settings.ftpServerAddress;
+        }
+
+        public string getFTPServerBaseDir()
+        {
+            Settings settings = this.readSettings();
+            return settings.ftpServerBaseDir;
+        }
+
+        public string getFTPServerUsername()
+        {
+            Settings settings = this.readSettings();
+            return settings.ftpServerUsername;
+        }
+
+        public string getFTPServerPassword()
+        {
+            Settings settings = this.readSettings();
+            return settings.ftpServerPassword;
+        }
     }
 }

@@ -229,6 +229,8 @@ namespace Hagyma
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
             this.uploadToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.uploadToolStripMenuItem.Text = "Upload";
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(
+                this.uploadToolStripMenuItem_Click);
             // 
             // startTestserverToolStripMenuItem
             // 

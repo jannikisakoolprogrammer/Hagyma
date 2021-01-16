@@ -176,6 +176,6 @@ namespace Hagyma
         </html>";
         public const string html_file = "template.html";
 
-        public const string comparison_file = "comparison.xml";
+        public const string comparison_file = "comparison.txt";
     }
 }

@@ -28,10 +28,11 @@ namespace Hagyma
 
         public event MenuItemClicked filesClicked;
         public event MenuItemClicked settingsClicked;
-        public event MenuItemClicked generateClicked;
 
+        public event MenuItemClicked generateClicked;
         public event MenuItemClicked startTestServerClicked;
         public event MenuItemClicked stopTestServerClicked;
+        public event MenuItemClicked uploadClicked;
 
         public event MenuItemClicked htmlMenuItemClicked;
 
@@ -481,6 +482,18 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.generateClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void uploadToolStripMenuItem_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.uploadClicked(
                     _sender,
                     _e);
             }

@@ -25,9 +25,11 @@ namespace Hagyma
 
         public event MenuItemClicked filesClicked;
         public event MenuItemClicked settingsClicked;
+
         public event MenuItemClicked generateClicked;
         public event MenuItemClicked startTestServerClicked;
         public event MenuItemClicked stopTestServerClicked;
+        public event MenuItemClicked uploadClicked;
 
         public event MenuItemClicked htmlMenuItemClicked;
 

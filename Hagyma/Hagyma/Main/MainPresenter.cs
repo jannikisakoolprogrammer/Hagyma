@@ -53,8 +53,9 @@ namespace Hagyma
 
             this.view.filesClicked += this.on_filesClick;
             this.view.settingsClicked += this.on_settingsClick;
-            this.view.generateClicked += this.on_generateClick;
 
+            this.view.generateClicked += this.on_generateClick;
+            this.view.uploadClicked += this.on_uploadClick;
             this.view.startTestServerClicked += this.on_startTestServerClick;
             this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
@@ -423,7 +424,16 @@ namespace Hagyma
             EventArgs _e)
         {
             this.model.generate();
+        }
 
+        public void on_uploadClick(
+            object _sender,
+            EventArgs _e)
+        {
+            FTPSync ftpSync = new FTPSync(
+                this.model.getProject());
+            ftpSync.init();
+            ftpSync.run();
         }
 
         public void on_startTestServerClick(
