@@ -177,5 +177,6 @@ namespace Hagyma
         public const string html_file = "template.html";
 
         public const string comparison_file = "comparison.txt";
+        public const string comparison_file_remote = "comparison_remote.txt";
     }
 }

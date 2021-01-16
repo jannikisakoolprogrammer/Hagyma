@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "FluentFTP": {
+              "target": "Package",
+              "version": "[33.0.3, )"
+            },
             "Markdown": {
               "target": "Package",
               "version": "[2.2.1, )"

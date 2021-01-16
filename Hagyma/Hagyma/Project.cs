@@ -184,10 +184,6 @@ namespace Hagyma
             this.createCSSFile();
             this.createJSFile();
             this.createHTMLFile();
-            this.createComparisionFileCSS();
-            this.createComparisionFileJS();
-            this.createComparisionFileOutput();
-            this.createComparisionFileResources();
         }
 
         protected void createCSSFile()
@@ -922,6 +918,27 @@ namespace Hagyma
         {
             Settings settings = this.readSettings();
             return settings.ftpServerPassword;
+        }
+
+        public bool getFTPForceCompleteUpload()
+        {
+            Settings settings = this.readSettings();
+            return settings.ftpForceCompleteUpload;
+        }
+
+        public string getCSSDirectory()
+        {
+            return this.dirPathCSS;
+        }
+
+        public string getJSDirectory()
+        {
+            return this.dirPathJS;
+        }
+
+        public string getResourcesDirectory()
+        {
+            return this.dirPathResources;
         }
     }
 }
