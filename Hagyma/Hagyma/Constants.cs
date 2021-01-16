@@ -174,6 +174,7 @@ namespace Hagyma
                 </main>
             </body>
         </html>";
+        public const string html_file = "template.html";
 
         public const string comparison_file = "comparison.xml";
     }

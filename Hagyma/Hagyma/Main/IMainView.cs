@@ -18,6 +18,7 @@ namespace Hagyma
 
         public event ButtonClicked buttonSaveCSSClicked;
         public event ButtonClicked buttonSaveJSClicked;
+        public event ButtonClicked buttonSaveHTMLTemplateClicked;
 
         public event ButtonClicked buttonSavePageClicked;
         public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
@@ -70,6 +71,10 @@ namespace Hagyma
         public void disableButtonSaveCSS();
         public void enableTextBoxCSS();
         public void disableTextBoxCSS();
+        public void enableTextBoxHTMLTemplate();
+        public void disableTextBoxHTMLTemplate();
+        public void enableButtonSaveHTMLTemplate();
+        public void disableButtonSaveHTMLTemplate();
         public void enableTabPage3();
         public void disableTabPage3();
         public void enableTextBoxJS();

@@ -62,11 +62,15 @@ namespace Hagyma
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBoxJS = new System.Windows.Forms.TextBox();
             this.buttonSaveJS = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBoxHTMLTemplate = new System.Windows.Forms.TextBox();
+            this.buttonSaveHTMLTemplate = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.tabControlEditor.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeViewPages
@@ -251,7 +255,7 @@ namespace Hagyma
             // htmlMenuItem
             // 
             this.htmlMenuItem.Name = "htmlMenuItem";
-            this.htmlMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.htmlMenuItem.Size = new System.Drawing.Size(106, 22);
             this.htmlMenuItem.Text = "HTML";
             this.htmlMenuItem.Click += new System.EventHandler(this.htmlMenuItem_Click);
             // 
@@ -276,6 +280,7 @@ namespace Hagyma
             this.tabControlEditor.Controls.Add(this.tabPage1);
             this.tabControlEditor.Controls.Add(this.tabPage2);
             this.tabControlEditor.Controls.Add(this.tabPage3);
+            this.tabControlEditor.Controls.Add(this.tabPage4);
             this.tabControlEditor.Location = new System.Drawing.Point(12, 27);
             this.tabControlEditor.Name = "tabControlEditor";
             this.tabControlEditor.SelectedIndex = 0;
@@ -355,6 +360,36 @@ namespace Hagyma
             this.buttonSaveJS.UseVisualStyleBackColor = true;
             this.buttonSaveJS.Click += new System.EventHandler(this.buttonSaveJS_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.textBoxHTMLTemplate);
+            this.tabPage4.Controls.Add(this.buttonSaveHTMLTemplate);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(668, 314);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "HTML template";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // textBoxHTMLTemplate
+            // 
+            this.textBoxHTMLTemplate.Location = new System.Drawing.Point(4, 34);
+            this.textBoxHTMLTemplate.Multiline = true;
+            this.textBoxHTMLTemplate.Name = "textBoxHTMLTemplate";
+            this.textBoxHTMLTemplate.Size = new System.Drawing.Size(661, 277);
+            this.textBoxHTMLTemplate.TabIndex = 1;
+            // 
+            // buttonSaveHTMLTemplate
+            // 
+            this.buttonSaveHTMLTemplate.Location = new System.Drawing.Point(4, 4);
+            this.buttonSaveHTMLTemplate.Name = "buttonSaveHTMLTemplate";
+            this.buttonSaveHTMLTemplate.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveHTMLTemplate.TabIndex = 0;
+            this.buttonSaveHTMLTemplate.Text = "Save";
+            this.buttonSaveHTMLTemplate.UseVisualStyleBackColor = true;
+            this.buttonSaveHTMLTemplate.Click += new System.EventHandler(this.buttonSaveHTMLTemplate_Click);
+            // 
             // ViewMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -374,6 +409,8 @@ namespace Hagyma
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,6 +455,9 @@ namespace Hagyma
         private System.Windows.Forms.TextBox textBoxCSS;
         private System.Windows.Forms.Button buttonSaveJS;
         private System.Windows.Forms.TextBox textBoxJS;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TextBox textBoxHTMLTemplate;
+        private System.Windows.Forms.Button buttonSaveHTMLTemplate;
     }
 }
 

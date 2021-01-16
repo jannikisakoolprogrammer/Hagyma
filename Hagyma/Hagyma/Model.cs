@@ -18,6 +18,7 @@ namespace Hagyma
 
         protected string css;
         protected string js;
+        protected string html;
 
         protected Dictionary<int, Page> tempPages;
 
@@ -135,9 +136,19 @@ namespace Hagyma
             this.js = this.project.loadJS();
         }
 
+        public void loadHTML()
+        {
+            this.html = this.project.loadHTML();
+        }
+
         public string getJS()
         {
             return this.js;
+        }
+
+        public string getHTML()
+        {
+            return this.html;
         }
 
         public void setJS(
@@ -150,6 +161,18 @@ namespace Hagyma
         {
             this.project.writeJS(
                 this.js);
+        }
+
+        public void setHTML(
+            string _html)
+        {
+            this.html = _html;
+        }
+
+        public void writeHTML()
+        {
+            this.project.writeHTML(
+                this.html);
         }
 
         public string loadPage(

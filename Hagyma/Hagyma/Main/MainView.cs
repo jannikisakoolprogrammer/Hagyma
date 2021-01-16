@@ -21,7 +21,8 @@ namespace Hagyma
 
         public event ButtonClicked buttonSaveCSSClicked;
         public event ButtonClicked buttonSaveJSClicked;
-      
+        public event ButtonClicked buttonSaveHTMLTemplateClicked;
+
         public event ButtonClicked buttonSavePageClicked;
         public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
 
@@ -366,9 +367,21 @@ namespace Hagyma
             this.textBoxJS.Text = _js;
         }
 
+        public void displayHTML(
+            string _html)
+        {
+            this.textBoxHTMLTemplate.Clear();
+            this.textBoxHTMLTemplate.Text = _html;
+        }
+
         public string getJS()
         {
             return this.textBoxJS.Text;
+        }
+
+        public string getHTML()
+        {
+            return this.textBoxHTMLTemplate.Text;
         }
 
         private void buttonSaveJS_Click(
@@ -395,6 +408,11 @@ namespace Hagyma
         public void clearJSTabPage()
         {
             this.textBoxJS.Clear();
+        }
+
+        public void clearHTMLTemplateTabPage()
+        {
+            this.textBoxHTMLTemplate.Clear();
         }
 
         private void buttonSavePage_Click(
@@ -502,6 +520,38 @@ namespace Hagyma
                     _sender,
                     _e);
             }
+        }
+
+        private void buttonSaveHTMLTemplate_Click(
+            object _sender,
+            EventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.buttonSaveHTMLTemplateClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public void enableTextBoxHTMLTemplate()
+        {
+            this.textBoxHTMLTemplate.Enabled = true;
+        }
+
+        public void disableTextBoxHTMLTemplate()
+        {
+            this.textBoxHTMLTemplate.Enabled = false;
+        }
+
+        public void enableButtonSaveHTMLTemplate()
+        {
+            this.buttonSaveHTMLTemplate.Enabled = true;
+        }
+
+        public void disableButtonSaveHTMLTemplate()
+        {
+            this.buttonSaveHTMLTemplate.Enabled = false;
         }
     }
 }

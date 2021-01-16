@@ -18,6 +18,7 @@ namespace Hagyma
         protected string filePathCSS;
         protected string dirPathJS;
         protected string filePathJS;
+        protected string filePathHTMLTemplate;
 
         protected string filePathJSComparisonFile;
         protected string filePathCSSComparisionFile;
@@ -74,6 +75,7 @@ namespace Hagyma
                 this.createTables();
 
                 this.insertSettings();
+                this.writeDefaultHTMLTemplate();
             }
             else
             {
@@ -121,6 +123,10 @@ namespace Hagyma
             this.filePathJS = System.IO.Path.Combine(
                 this.dirPathJS,
                 Constants.js_file);
+
+            this.filePathHTMLTemplate = System.IO.Path.Combine(
+                this.path,
+                Constants.html_file);
 
             this.filePathCSSComparisionFile = System.IO.Path.Combine(
                 this.dirPathCSS,
@@ -177,6 +183,7 @@ namespace Hagyma
         {
             this.createCSSFile();
             this.createJSFile();
+            this.createHTMLFile();
             this.createComparisionFileCSS();
             this.createComparisionFileJS();
             this.createComparisionFileOutput();
@@ -192,6 +199,13 @@ namespace Hagyma
         protected void createJSFile()
         {
             System.IO.FileStream file = System.IO.File.Create(this.filePathJS);
+            file.Close();
+        }
+
+        protected void createHTMLFile()
+        {
+            System.IO.FileStream file = System.IO.File.Create(
+                this.filePathHTMLTemplate);
             file.Close();
         }
 
@@ -578,6 +592,21 @@ namespace Hagyma
                 _js);
         }
 
+        public string loadHTML()
+        {
+            return System.IO.File.ReadAllText(
+                this.filePathHTMLTemplate,
+                new System.Text.UTF8Encoding());
+        }
+
+        public void writeHTML(
+            string _html)
+        {
+            System.IO.File.WriteAllText(
+                this.filePathHTMLTemplate,
+                _html);
+        }
+
         public void updatePageContent(
             int _pageId,
             string _content)
@@ -764,7 +793,7 @@ namespace Hagyma
 
             foreach (System.Object[] pageData in pages)
             {
-                string html = Constants.html_template;
+                string html = this.loadHTML();
                 string navigation = this.generateNavigation();
                 string content = pageData.GetValue(4).ToString();
 
@@ -863,6 +892,12 @@ namespace Hagyma
         public string getHTML()
         {
             return Constants.html_template;
+        }
+
+        protected void writeDefaultHTMLTemplate()
+        {
+            this.writeHTML(
+                Constants.html_template);
         }
 
     }

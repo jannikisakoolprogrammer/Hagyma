@@ -46,6 +46,7 @@ namespace Hagyma
 
             this.view.buttonSaveCSSClicked += this.on_buttonSaveCSSClick;
             this.view.buttonSaveJSClicked += this.on_buttonSaveJSClick;
+            this.view.buttonSaveHTMLTemplateClicked += this.on_buttonSaveHTMLTemplateClick;
 
             this.view.buttonSavePageClicked += this.on_buttonSavePageClick;
             this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
@@ -58,8 +59,6 @@ namespace Hagyma
             this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
             this.view.htmlMenuItemClicked += this.on_htmlMenuItemClick;
-
-            //this.view.fil
         }
 
         /// <summary>
@@ -178,6 +177,9 @@ namespace Hagyma
             this.view.disableTreeViewPages();
             this.view.disableUploadToolStripMenuItem();
 
+            this.view.disableButtonSaveHTMLTemplate();
+            this.view.disableTextBoxHTMLTemplate();
+
             this.unloadView();
         }
 
@@ -209,6 +211,9 @@ namespace Hagyma
             this.view.enableTreeViewPages();
             this.view.enableUploadToolStripMenuItem();
 
+            this.view.enableButtonSaveHTMLTemplate();
+            this.view.enableTextBoxHTMLTemplate();
+
             // Load pages into tree control.
             this.loadView();            
         }
@@ -218,6 +223,7 @@ namespace Hagyma
             this.loadPages();
             this.loadCSS();
             this.loadJS();
+            this.loadHTML();
         }
 
         protected void unloadView()
@@ -226,6 +232,7 @@ namespace Hagyma
             this.view.clearPagesTabPage();
             this.view.clearCSSTabPage();
             this.view.clearJSTabPage();
+            this.view.clearHTMLTemplateTabPage();
         }
 
         protected void loadPages()
@@ -283,6 +290,14 @@ namespace Hagyma
 
         }
 
+        protected void loadHTML()
+        {
+            this.model.loadHTML();
+            string html = this.model.getHTML();
+            this.view.displayHTML(
+                html);
+        }
+
         protected void saveCSS()
         {
             string css = this.view.getCSS();
@@ -296,6 +311,13 @@ namespace Hagyma
             string js = this.view.getJS();
             this.model.setJS(js);
             this.model.writeJS();
+        }
+
+        protected void saveHTML()
+        {
+            string html = this.view.getHTML();
+            this.model.setHTML(html);
+            this.model.writeHTML();
         }
 
         public void on_buttonSaveCSSClick(
@@ -428,6 +450,13 @@ namespace Hagyma
             htmlView.setHTMLTemplate(
                 this.model.getProject().getHTML());
             htmlView.Show();
+        }
+
+        public void on_buttonSaveHTMLTemplateClick(
+            object _sender,
+            EventArgs _e)
+        {
+            this.saveHTML();
         }
     }
 }
