@@ -75,6 +75,9 @@ namespace Hagyma
             // 
             // treeViewPages
             // 
+            this.treeViewPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewPages.Location = new System.Drawing.Point(3, 31);
             this.treeViewPages.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewPages.Name = "treeViewPages";
@@ -84,10 +87,15 @@ namespace Hagyma
             // 
             // textBoxPage
             // 
+            this.textBoxPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPage.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxPage.Location = new System.Drawing.Point(150, 31);
             this.textBoxPage.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPage.Multiline = true;
             this.textBoxPage.Name = "textBoxPage";
+            this.textBoxPage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxPage.Size = new System.Drawing.Size(507, 271);
             this.textBoxPage.TabIndex = 5;
             // 
@@ -229,8 +237,7 @@ namespace Hagyma
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
             this.uploadToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.uploadToolStripMenuItem.Text = "Upload";
-            this.uploadToolStripMenuItem.Click += new System.EventHandler(
-                this.uploadToolStripMenuItem_Click);
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
             // 
             // startTestserverToolStripMenuItem
             // 
@@ -279,6 +286,9 @@ namespace Hagyma
             // 
             // tabControlEditor
             // 
+            this.tabControlEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlEditor.Controls.Add(this.tabPage1);
             this.tabControlEditor.Controls.Add(this.tabPage2);
             this.tabControlEditor.Controls.Add(this.tabPage3);
@@ -326,9 +336,14 @@ namespace Hagyma
             // 
             // textBoxCSS
             // 
+            this.textBoxCSS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCSS.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxCSS.Location = new System.Drawing.Point(4, 34);
             this.textBoxCSS.Multiline = true;
             this.textBoxCSS.Name = "textBoxCSS";
+            this.textBoxCSS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxCSS.Size = new System.Drawing.Size(661, 267);
             this.textBoxCSS.TabIndex = 1;
             // 
@@ -346,9 +361,14 @@ namespace Hagyma
             // 
             // textBoxJS
             // 
+            this.textBoxJS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxJS.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxJS.Location = new System.Drawing.Point(4, 34);
             this.textBoxJS.Multiline = true;
             this.textBoxJS.Name = "textBoxJS";
+            this.textBoxJS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxJS.Size = new System.Drawing.Size(661, 267);
             this.textBoxJS.TabIndex = 1;
             // 
@@ -376,9 +396,14 @@ namespace Hagyma
             // 
             // textBoxHTMLTemplate
             // 
+            this.textBoxHTMLTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHTMLTemplate.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxHTMLTemplate.Location = new System.Drawing.Point(4, 34);
             this.textBoxHTMLTemplate.Multiline = true;
             this.textBoxHTMLTemplate.Name = "textBoxHTMLTemplate";
+            this.textBoxHTMLTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxHTMLTemplate.Size = new System.Drawing.Size(661, 277);
             this.textBoxHTMLTemplate.TabIndex = 1;
             // 
