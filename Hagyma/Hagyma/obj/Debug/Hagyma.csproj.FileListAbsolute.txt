@@ -1,0 +1,10 @@
+Y:\Repos\Hagyma\Hagyma\bin\Debug\Hagyma.exe.config
+Y:\Repos\Hagyma\Hagyma\bin\Debug\Hagyma.exe
+Y:\Repos\Hagyma\Hagyma\bin\Debug\Hagyma.pdb
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.csprojAssemblyReference.cache
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.Properties.Resources.resources
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.csproj.GenerateResource.cache
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.csproj.CoreCompileInputs.cache
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.exe
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.pdb
+Y:\Repos\Hagyma\Hagyma\obj\Debug\Hagyma.ViewMain.resources

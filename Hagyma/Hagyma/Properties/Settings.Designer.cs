@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 
+
 namespace Hagyma.Properties
 {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

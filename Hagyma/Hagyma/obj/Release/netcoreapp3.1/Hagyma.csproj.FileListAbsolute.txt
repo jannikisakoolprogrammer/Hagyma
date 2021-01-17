@@ -1,0 +1,15 @@
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.csprojAssemblyReference.cache
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.AddPageView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.EditPageView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.FilesView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.HTMLView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.ViewMain.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.NewProjectView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.OpenProjectView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.PageTreeView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.Properties.Resources.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.SettingsView.resources
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.csproj.GenerateResource.cache
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.AssemblyInfoInputs.cache
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.AssemblyInfo.cs
+Y:\Repos\Hagyma\Hagyma\obj\Release\netcoreapp3.1\Hagyma.csproj.CoreCompileInputs.cache
