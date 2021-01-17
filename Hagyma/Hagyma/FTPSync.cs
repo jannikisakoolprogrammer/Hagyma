@@ -116,6 +116,8 @@ namespace Hagyma
                 this.ftpServerUsername,
                 this.ftpServerPassword);
 
+            this.ftpClient.DataConnectionType = FtpDataConnectionType.PASV;
+
             this.ftpClient.Connect();
         }
 
@@ -174,9 +176,19 @@ namespace Hagyma
                         fileName).Replace(
                             '\\', '/');
 
+                    System.IO.FileStream fs = System.IO.File.OpenRead(
+                        file);
+
+                    FtpStatus status = this.ftpClient.Upload(
+                        fs,
+                        remoteFilePath);
+
+                    fs.Close();
+                    /*
                     this.ftpClient.UploadFile(
                         file,
                         remoteFilePath);
+                    */
                 }
             }
             else
@@ -217,9 +229,19 @@ namespace Hagyma
                         fileName).Replace(
                             '\\', '/');
 
+                    System.IO.FileStream fileS = System.IO.File.OpenRead(
+                        key);
+
+                    this.ftpClient.Upload(
+                        fileS,
+                        remoteFilePath);
+
+                    fileS.Close();
+                    /*
                     this.ftpClient.UploadFile(
                         key,
                         remoteFilePath);
+                    */
                 }
 
                 // Delete all files to be deleted.
@@ -238,9 +260,20 @@ namespace Hagyma
                         remoteFilePath);
                 }
 
+                System.IO.FileStream fs = System.IO.File.OpenRead(
+                    comparisonFilePath);
+
+                this.ftpClient.Upload(
+                    fs,
+                    comparisonFileRemote);
+
+                fs.Close();
+
+                /*
                 this.ftpClient.UploadFile(
                     comparisonFilePath,
                     comparisonFileRemote);
+                */
             }
         }
 
@@ -300,6 +333,8 @@ namespace Hagyma
                             "{0}|{1}",
                             file,
                             hashValueString));
+
+                    fs.Close();
                 }
             }
 
