@@ -143,7 +143,24 @@ namespace Hagyma
 
             if (result == false || this.ftpForceCompleteUpload == true)
             {
-                // Never been synced. Upload files.
+                // Never been synced. Remove and upload all files.
+                FtpListItem[] fileList = this.ftpClient.GetListing(
+                    _remoteDir);
+
+                foreach (FtpListItem f in fileList)
+                {
+                    if (f.Type == FtpFileSystemObjectType.File)
+                    {
+                        string remoteFilePath = System.IO.Path.Combine(
+                            _remoteDir,
+                            f.Name).Replace(
+                                '\\', '/');
+
+                        this.ftpClient.DeleteFile(
+                            remoteFilePath);
+                    }
+                }
+
                 string[] files = System.IO.Directory.GetFiles(
                     _localDir,
                     "",
