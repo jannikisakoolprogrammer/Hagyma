@@ -9,6 +9,8 @@ namespace Hagyma
 {
     public class Constants
     {
+        public const string name = "Hagyma";
+        public const string release = "20210117";
         public const string database_dir = "database"; // Obsolete.
         public const string database_file = "db.sqlite";
 
