@@ -397,6 +397,13 @@ namespace Hagyma
                             value);
                     }
                 }
+                else
+                {
+                    // Upload this file.
+                    dictFilesToWrite.Add(
+                        key,
+                        value);
+                }
             }
 
             return dictFilesToWrite;
@@ -414,16 +421,12 @@ namespace Hagyma
                 string value = entry.Value;
 
                 bool result = _srcDict.ContainsKey(key);
-                if (result == true)
+                if (result == false)
                 {
-                    string srcValue = _dstDict[key];
-                    if (srcValue != value)
-                    {
-                        // Delete this file.
-                        dictFilesToDelete.Add(
-                            key,
-                            value);
-                    }
+                    // Delete this file.
+                    dictFilesToDelete.Add(
+                        key,
+                        value);
                 }
             }
 
