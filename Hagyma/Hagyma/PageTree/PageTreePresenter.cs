@@ -26,6 +26,7 @@ namespace Hagyma
             this.view.buttonUpClicked += this.on_buttonUpClicked;
             this.view.buttonDownClicked += this.on_buttonDownClicked;
             this.view.formClosed += this.on_formClosed;
+            this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
 
             this.refreshView();
         }
@@ -167,6 +168,47 @@ namespace Hagyma
             this.model.syncTempPagesWithDBPages();
 
             this.view.Hide();
+        }
+
+        public void on_pageTreeNodeAfterClick(
+            object _sender,
+            EventArgs _e)
+        {
+            int selectedNodeId = int.Parse(
+                this.view.getSelectedTreeNode().Tag.ToString());
+
+            Project project = this.getProject();
+
+            int lowestSortId = project.getLowestSortId();
+
+            int selectedSortId = int.Parse(
+                project.getPageById(
+                    selectedNodeId).GetValue(2).ToString());
+            int highestSortId = project.getHighestSortId();
+
+            this.view.enableButtonAdd();
+            this.view.enableButtonRename();
+            this.view.enableButtonDelete();
+
+            if (selectedSortId == lowestSortId)
+            {
+                this.view.disableButtonUp();
+                this.view.enableButtonDown();
+            }
+            else if (selectedSortId == highestSortId)
+            {
+                this.view.disableButtonDown();
+                this.view.enableButtonUp();
+            }
+            else
+            {
+                this.view.enableButtonUp();
+                this.view.enableButtonDown();
+            }
+
+
+
+
         }
     }
 }

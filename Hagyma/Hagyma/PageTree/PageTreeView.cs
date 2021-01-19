@@ -16,6 +16,7 @@ namespace Hagyma
         public event ButtonClicked buttonUpClicked;
         public event ButtonClicked buttonDownClicked;
         public event FormClosed formClosed;
+        public event TreeNodeClickedAfter pageTreeNodeAfterClicked;
 
         public PageTreeView()
         {
@@ -101,6 +102,48 @@ namespace Hagyma
             if (_sender != null)
             {
                 this.buttonDownClicked(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public void enableButtonAdd()
+        {
+            this.buttonAdd.Enabled = true;
+        }
+        public void enableButtonRename()
+        {
+            this.buttonRename.Enabled = true;
+        }
+        public void enableButtonDelete()
+        {
+            this.buttonDelete.Enabled = true;
+        }
+        public void enableButtonUp()
+        {
+            this.buttonMovePageUp.Enabled = true;
+        }
+        public void enableButtonDown()
+        {
+            this.buttonMovePageDown.Enabled = true;
+        }
+
+        public void disableButtonUp()
+        {
+            this.buttonMovePageUp.Enabled = false;
+        }
+        public void disableButtonDown()
+        {
+            this.buttonMovePageDown.Enabled = false;
+        }
+
+        public void TreeView1_AfterSelect_Click(
+            object _sender,
+            TreeViewEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.pageTreeNodeAfterClicked(
                     _sender,
                     _e);
             }
