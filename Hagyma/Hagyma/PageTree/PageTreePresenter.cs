@@ -121,19 +121,36 @@ namespace Hagyma
                 object _sender,
                 EventArgs _e)
             {
+                localView.Hide();
+
+
                 string editedPageName = localView.getTextboxEditPageNameValue();
                 int pageID = localView.getPageID();
 
                 if (editedPageName != "")
                 {
-                    this.model.renamePage(
-                        editedPageName,
-                        pageID);
+                    bool pageExists = this.model.checkPageExists(
+                        editedPageName);
+                    if (pageExists == true)
+                    {
+                        MessageBox.Show(
+                            String.Format(
+                                "A page with the name '{0}' already exists.  Please enter another name.",
+                                editedPageName));
 
-                    this.refreshView();
+                        this.on_buttonRenameClicked(
+                            _sender,
+                            _e);
+                    }
+                    else
+                    {
+                        this.model.renamePage(
+                            editedPageName,
+                            pageID);
+
+                        this.refreshView();
+                    }
                 }
-
-                localView.Hide();
             }
 
             void on_buttonCancelClicked(
@@ -141,6 +158,7 @@ namespace Hagyma
                 EventArgs _e)
             {
                 localView.Hide();
+                localView.Close();
             }
         }
 
