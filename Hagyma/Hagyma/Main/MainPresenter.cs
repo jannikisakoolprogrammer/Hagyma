@@ -204,7 +204,6 @@ namespace Hagyma
             this.view.enableSaveButtonPages();
             this.view.enableSettingsToolStripMenuItem();
             this.view.enableStartTestserverToolStripMenuItem();
-            this.view.enableStopTestserverToolStripMenuItem();
             this.view.enableTabControlEditor();
             this.view.enableTextBoxCSS();
             this.view.enableTextBoxJS();

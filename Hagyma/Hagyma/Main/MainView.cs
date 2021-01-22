@@ -508,6 +508,9 @@ namespace Hagyma
                 this.startTestServerClicked(
                     _sender,
                     _e);
+
+                this.disableStartTestserverToolStripMenuItem();
+                this.enableStopTestserverToolStripMenuItem();
             }
         }
 
@@ -520,6 +523,9 @@ namespace Hagyma
                 this.stopTestServerClicked(
                     _sender,
                     _e);
+
+                this.disableStopTestserverToolStripMenuItem();
+                this.enableStartTestserverToolStripMenuItem();
             }
         }
 
