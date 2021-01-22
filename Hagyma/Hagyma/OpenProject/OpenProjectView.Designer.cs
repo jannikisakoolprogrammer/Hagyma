@@ -37,6 +37,7 @@ namespace Hagyma
             // 
             // comboBoxProjects
             // 
+            this.comboBoxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProjects.FormattingEnabled = true;
             this.comboBoxProjects.Location = new System.Drawing.Point(12, 31);
             this.comboBoxProjects.Name = "comboBoxProjects";
