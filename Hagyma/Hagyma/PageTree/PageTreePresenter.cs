@@ -79,10 +79,26 @@ namespace Hagyma
             string enteredPageName = view.getEnteredPageName();
             if (enteredPageName != "")
             {
-                this.model.createNewPage(
+                bool pageExists = this.model.checkPageExists(
                     enteredPageName);
+                if (pageExists == true)
+                {
+                    MessageBox.Show(
+                        String.Format(
+                            "A page with the name '{0}' already exists.  Please enter another name.",
+                            enteredPageName));
 
-                this.refreshView();
+                    this.on_buttonAddClicked(
+                        _sender,
+                        _e);
+                }
+                else
+                {
+                    this.model.createNewPage(
+                        enteredPageName);
+
+                    this.refreshView();
+                }
             }
         }
 

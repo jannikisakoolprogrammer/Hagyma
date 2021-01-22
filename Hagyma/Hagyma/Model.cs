@@ -308,5 +308,23 @@ namespace Hagyma
         {
             this.getProject().generate();
         }
+
+        public bool checkPageExists(
+            string _pageName)
+        {
+            System.Collections.ArrayList pages = this.project.getPages();
+            System.Collections.IEnumerator pagesEnumerator = pages.GetEnumerator();
+
+            string existingPageName = "";
+            foreach (System.Object[] page in pages)
+            {
+                existingPageName = page.GetValue(3).ToString();
+                if (existingPageName == _pageName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
