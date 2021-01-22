@@ -326,5 +326,24 @@ namespace Hagyma
             }
             return false;
         }
+
+        public bool checkFileExists(
+            string _path)
+        {
+            System.Object[] files = this.getFileList();
+            foreach (string name in files)
+            {
+                string fname = System.IO.Path.GetFileName(
+                    _path);
+
+                if (name == fname)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+
+        }
     }
 }
