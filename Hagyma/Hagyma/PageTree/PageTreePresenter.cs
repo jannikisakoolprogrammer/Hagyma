@@ -79,14 +79,28 @@ namespace Hagyma
             string enteredPageName = view.getEnteredPageName();
             if (enteredPageName != "")
             {
+                bool invalidChars = this.checkInvalidFileNameChars(
+                    enteredPageName);
+
                 bool pageExists = this.model.checkPageExists(
                     enteredPageName);
-                if (pageExists == true)
+                if (pageExists == true || invalidChars == true)
                 {
-                    MessageBox.Show(
-                        String.Format(
-                            "A page with the name '{0}' already exists.  Please enter another name.",
-                            enteredPageName));
+                    if (invalidChars == true)
+                    {
+                        MessageBox.Show(
+                            String.Format(
+                                "Name '{0}' contains invalid characters.",
+                                enteredPageName));
+                    }
+
+                    else if (pageExists == true)
+                    {
+                        MessageBox.Show(
+                            String.Format(
+                                "A page with the name '{0}' already exists.  Please enter another name.",
+                                enteredPageName));
+                    }
 
                     this.on_buttonAddClicked(
                         _sender,
@@ -129,14 +143,27 @@ namespace Hagyma
 
                 if (editedPageName != "")
                 {
+                    bool invalidChars = this.checkInvalidFileNameChars(
+                        editedPageName);
+
                     bool pageExists = this.model.checkPageExists(
                         editedPageName);
-                    if (pageExists == true)
+                    if (invalidChars == true || pageExists == true)
                     {
-                        MessageBox.Show(
-                            String.Format(
-                                "A page with the name '{0}' already exists.  Please enter another name.",
-                                editedPageName));
+                        if (invalidChars == true)
+                        {
+                            MessageBox.Show(
+                                String.Format(
+                                    "Name '{0}' contains invalid characters.",
+                                    editedPageName));
+                        }
+                        else if (pageExists == true)
+                        {
+                            MessageBox.Show(
+                                String.Format(
+                                    "A page with the name '{0}' already exists.  Please enter another name.",
+                                    editedPageName));
+                        }
 
                         this.on_buttonRenameClicked(
                             _sender,
@@ -239,10 +266,19 @@ namespace Hagyma
                 this.view.enableButtonUp();
                 this.view.enableButtonDown();
             }
+        }
 
+        protected bool checkInvalidFileNameChars(
+            string _name)
+        {
+            System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex("^[A-Za-z]+[0-9. ]*");
 
-
-
+            if (r.IsMatch(_name) == false)
+            {
+                // validation failed
+                return true;
+            }
+            return false;
         }
     }
 }
