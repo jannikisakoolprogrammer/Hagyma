@@ -670,6 +670,11 @@ namespace Hagyma
                     case Keys.G:
                         this.model.generate();
                         break;
+                    case Keys.U:
+                        this.on_uploadClick(
+                            null,
+                            new EventArgs());
+                        break;
                     default:
                         break;
                 }
