@@ -435,7 +435,7 @@ namespace Hagyma
             this.Controls.Add(this.menuStrip2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewMain";
-            this.Text = "Hagyma - Release 20210117";
+            this.Text = "Hagyma - Release 20210123";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabControlEditor.ResumeLayout(false);
