@@ -78,10 +78,10 @@ namespace Hagyma
             this.treeViewPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewPages.Location = new System.Drawing.Point(3, 31);
+            this.treeViewPages.Location = new System.Drawing.Point(3, 34);
             this.treeViewPages.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewPages.Name = "treeViewPages";
-            this.treeViewPages.Size = new System.Drawing.Size(143, 271);
+            this.treeViewPages.Size = new System.Drawing.Size(227, 455);
             this.treeViewPages.TabIndex = 4;
             this.treeViewPages.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPages_AfterSelect);
             // 
@@ -92,20 +92,20 @@ namespace Hagyma
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPage.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPage.Location = new System.Drawing.Point(150, 31);
+            this.textBoxPage.Location = new System.Drawing.Point(234, 34);
             this.textBoxPage.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPage.Multiline = true;
             this.textBoxPage.Name = "textBoxPage";
             this.textBoxPage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPage.Size = new System.Drawing.Size(507, 271);
+            this.textBoxPage.Size = new System.Drawing.Size(507, 455);
             this.textBoxPage.TabIndex = 5;
             this.textBoxPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPage_KeyDown);
             // 
             // buttonSavePage
             // 
-            this.buttonSavePage.Location = new System.Drawing.Point(3, 3);
+            this.buttonSavePage.Location = new System.Drawing.Point(4, 4);
             this.buttonSavePage.Name = "buttonSavePage";
-            this.buttonSavePage.Size = new System.Drawing.Size(143, 23);
+            this.buttonSavePage.Size = new System.Drawing.Size(148, 23);
             this.buttonSavePage.TabIndex = 6;
             this.buttonSavePage.Text = "Save";
             this.buttonSavePage.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@ namespace Hagyma
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(700, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(784, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -298,7 +298,7 @@ namespace Hagyma
             this.tabControlEditor.Location = new System.Drawing.Point(12, 27);
             this.tabControlEditor.Name = "tabControlEditor";
             this.tabControlEditor.SelectedIndex = 0;
-            this.tabControlEditor.Size = new System.Drawing.Size(676, 342);
+            this.tabControlEditor.Size = new System.Drawing.Size(760, 526);
             this.tabControlEditor.TabIndex = 7;
             // 
             // tabPage1
@@ -309,7 +309,7 @@ namespace Hagyma
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(668, 314);
+            this.tabPage1.Size = new System.Drawing.Size(752, 498);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pages";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -321,7 +321,7 @@ namespace Hagyma
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(668, 314);
+            this.tabPage2.Size = new System.Drawing.Size(752, 498);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CSS";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -330,7 +330,7 @@ namespace Hagyma
             // 
             this.buttonSaveCSS.Location = new System.Drawing.Point(4, 4);
             this.buttonSaveCSS.Name = "buttonSaveCSS";
-            this.buttonSaveCSS.Size = new System.Drawing.Size(143, 23);
+            this.buttonSaveCSS.Size = new System.Drawing.Size(148, 23);
             this.buttonSaveCSS.TabIndex = 2;
             this.buttonSaveCSS.Text = "Save";
             this.buttonSaveCSS.UseVisualStyleBackColor = true;
@@ -347,7 +347,7 @@ namespace Hagyma
             this.textBoxCSS.Multiline = true;
             this.textBoxCSS.Name = "textBoxCSS";
             this.textBoxCSS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxCSS.Size = new System.Drawing.Size(661, 267);
+            this.textBoxCSS.Size = new System.Drawing.Size(745, 451);
             this.textBoxCSS.TabIndex = 1;
             this.textBoxCSS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCSS_KeyDown);
             // 
@@ -358,7 +358,7 @@ namespace Hagyma
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(668, 314);
+            this.tabPage3.Size = new System.Drawing.Size(752, 498);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "JavaScript";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@ namespace Hagyma
             this.textBoxJS.Multiline = true;
             this.textBoxJS.Name = "textBoxJS";
             this.textBoxJS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxJS.Size = new System.Drawing.Size(661, 267);
+            this.textBoxJS.Size = new System.Drawing.Size(745, 451);
             this.textBoxJS.TabIndex = 1;
             this.textBoxJS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxJS_KeyDown);
             // 
@@ -382,7 +382,7 @@ namespace Hagyma
             // 
             this.buttonSaveJS.Location = new System.Drawing.Point(4, 4);
             this.buttonSaveJS.Name = "buttonSaveJS";
-            this.buttonSaveJS.Size = new System.Drawing.Size(142, 23);
+            this.buttonSaveJS.Size = new System.Drawing.Size(148, 23);
             this.buttonSaveJS.TabIndex = 0;
             this.buttonSaveJS.Text = "Save";
             this.buttonSaveJS.UseVisualStyleBackColor = true;
@@ -395,7 +395,7 @@ namespace Hagyma
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(668, 314);
+            this.tabPage4.Size = new System.Drawing.Size(752, 498);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "HTML template";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -411,7 +411,7 @@ namespace Hagyma
             this.textBoxHTMLTemplate.Multiline = true;
             this.textBoxHTMLTemplate.Name = "textBoxHTMLTemplate";
             this.textBoxHTMLTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxHTMLTemplate.Size = new System.Drawing.Size(661, 277);
+            this.textBoxHTMLTemplate.Size = new System.Drawing.Size(745, 461);
             this.textBoxHTMLTemplate.TabIndex = 1;
             this.textBoxHTMLTemplate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHTMLTemplate_KeyDown);
             // 
@@ -419,7 +419,7 @@ namespace Hagyma
             // 
             this.buttonSaveHTMLTemplate.Location = new System.Drawing.Point(4, 4);
             this.buttonSaveHTMLTemplate.Name = "buttonSaveHTMLTemplate";
-            this.buttonSaveHTMLTemplate.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveHTMLTemplate.Size = new System.Drawing.Size(148, 23);
             this.buttonSaveHTMLTemplate.TabIndex = 0;
             this.buttonSaveHTMLTemplate.Text = "Save";
             this.buttonSaveHTMLTemplate.UseVisualStyleBackColor = true;
@@ -429,7 +429,7 @@ namespace Hagyma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 377);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tabControlEditor);
             this.Controls.Add(this.menuStrip2);
             this.Margin = new System.Windows.Forms.Padding(2);

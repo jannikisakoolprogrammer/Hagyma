@@ -39,15 +39,15 @@ namespace Hagyma
             // 
             this.comboBoxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProjects.FormattingEnabled = true;
-            this.comboBoxProjects.Location = new System.Drawing.Point(12, 31);
+            this.comboBoxProjects.Location = new System.Drawing.Point(14, 29);
             this.comboBoxProjects.Name = "comboBoxProjects";
-            this.comboBoxProjects.Size = new System.Drawing.Size(236, 23);
+            this.comboBoxProjects.Size = new System.Drawing.Size(290, 23);
             this.comboBoxProjects.TabIndex = 0;
             // 
             // labelOpenProject
             // 
             this.labelOpenProject.AutoSize = true;
-            this.labelOpenProject.Location = new System.Drawing.Point(12, 13);
+            this.labelOpenProject.Location = new System.Drawing.Point(15, 7);
             this.labelOpenProject.Name = "labelOpenProject";
             this.labelOpenProject.Size = new System.Drawing.Size(79, 15);
             this.labelOpenProject.TabIndex = 1;
@@ -55,9 +55,9 @@ namespace Hagyma
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(12, 60);
+            this.buttonOk.Location = new System.Drawing.Point(14, 59);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.Size = new System.Drawing.Size(146, 27);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@ namespace Hagyma
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(93, 60);
+            this.buttonCancel.Location = new System.Drawing.Point(167, 59);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(133, 27);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@ namespace Hagyma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 102);
+            this.ClientSize = new System.Drawing.Size(314, 96);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelOpenProject);
