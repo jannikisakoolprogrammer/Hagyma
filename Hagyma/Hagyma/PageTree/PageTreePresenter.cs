@@ -26,6 +26,7 @@ namespace Hagyma
             this.view.buttonUpClicked += this.on_buttonUpClicked;
             this.view.buttonDownClicked += this.on_buttonDownClicked;
             this.view.formClosed += this.on_formClosed;
+            this.view.pageTreeNodeAfterClicked += this.on_pageTreeNodeAfterClick;
 
             this.refreshView();
         }
@@ -78,10 +79,40 @@ namespace Hagyma
             string enteredPageName = view.getEnteredPageName();
             if (enteredPageName != "")
             {
-                this.model.createNewPage(
+                bool invalidChars = this.checkInvalidFileNameChars(
                     enteredPageName);
 
-                this.refreshView();
+                bool pageExists = this.model.checkPageExists(
+                    enteredPageName);
+                if (pageExists == true || invalidChars == true)
+                {
+                    if (invalidChars == true)
+                    {
+                        MessageBox.Show(
+                            String.Format(
+                                "Name '{0}' contains invalid characters.",
+                                enteredPageName));
+                    }
+
+                    else if (pageExists == true)
+                    {
+                        MessageBox.Show(
+                            String.Format(
+                                "A page with the name '{0}' already exists.  Please enter another name.",
+                                enteredPageName));
+                    }
+
+                    this.on_buttonAddClicked(
+                        _sender,
+                        _e);
+                }
+                else
+                {
+                    this.model.createNewPage(
+                        enteredPageName);
+
+                    this.refreshView();
+                }
             }
         }
 
@@ -104,19 +135,49 @@ namespace Hagyma
                 object _sender,
                 EventArgs _e)
             {
+                localView.Hide();
+
+
                 string editedPageName = localView.getTextboxEditPageNameValue();
                 int pageID = localView.getPageID();
 
                 if (editedPageName != "")
                 {
-                    this.model.renamePage(
-                        editedPageName,
-                        pageID);
+                    bool invalidChars = this.checkInvalidFileNameChars(
+                        editedPageName);
 
-                    this.refreshView();
+                    bool pageExists = this.model.checkPageExists(
+                        editedPageName);
+                    if (invalidChars == true || pageExists == true)
+                    {
+                        if (invalidChars == true)
+                        {
+                            MessageBox.Show(
+                                String.Format(
+                                    "Name '{0}' contains invalid characters.",
+                                    editedPageName));
+                        }
+                        else if (pageExists == true)
+                        {
+                            MessageBox.Show(
+                                String.Format(
+                                    "A page with the name '{0}' already exists.  Please enter another name.",
+                                    editedPageName));
+                        }
+
+                        this.on_buttonRenameClicked(
+                            _sender,
+                            _e);
+                    }
+                    else
+                    {
+                        this.model.renamePage(
+                            editedPageName,
+                            pageID);
+
+                        this.refreshView();
+                    }
                 }
-
-                localView.Hide();
             }
 
             void on_buttonCancelClicked(
@@ -124,6 +185,7 @@ namespace Hagyma
                 EventArgs _e)
             {
                 localView.Hide();
+                localView.Close();
             }
         }
 
@@ -167,6 +229,56 @@ namespace Hagyma
             this.model.syncTempPagesWithDBPages();
 
             this.view.Hide();
+        }
+
+        public void on_pageTreeNodeAfterClick(
+            object _sender,
+            EventArgs _e)
+        {
+            int selectedNodeId = int.Parse(
+                this.view.getSelectedTreeNode().Tag.ToString());
+
+            Project project = this.getProject();
+
+            int lowestSortId = project.getLowestSortId();
+
+            int selectedSortId = int.Parse(
+                project.getPageById(
+                    selectedNodeId).GetValue(2).ToString());
+            int highestSortId = project.getHighestSortId();
+
+            this.view.enableButtonAdd();
+            this.view.enableButtonRename();
+            this.view.enableButtonDelete();
+
+            if (selectedSortId == lowestSortId)
+            {
+                this.view.disableButtonUp();
+                this.view.enableButtonDown();
+            }
+            else if (selectedSortId == highestSortId)
+            {
+                this.view.disableButtonDown();
+                this.view.enableButtonUp();
+            }
+            else
+            {
+                this.view.enableButtonUp();
+                this.view.enableButtonDown();
+            }
+        }
+
+        protected bool checkInvalidFileNameChars(
+            string _name)
+        {
+            System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex("^[A-Za-z]+[0-9. ]*");
+
+            if (r.IsMatch(_name) == false)
+            {
+                // validation failed
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -45,8 +45,25 @@ namespace Hagyma
             DialogResult dialogResult = openFileDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                this.model.copyFile(
+                bool fileExists = this.model.checkFileExists(
                     openFileDialog.FileName);
+
+                if (fileExists == true)
+                {
+                    MessageBox.Show(
+                        String.Format(
+                            "A file with the name '{0}' already exists.",
+                            openFileDialog.FileName));
+
+                    this.on_buttonImportClick(
+                        _sender,
+                        _e);
+                }
+                else
+                {
+                    this.model.copyFile(
+                        openFileDialog.FileName);
+                }
             }
 
             System.Object[] fileList = this.model.getFileList();

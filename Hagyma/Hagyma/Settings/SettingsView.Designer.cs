@@ -199,9 +199,9 @@ namespace Hagyma
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(13, 266);
+            this.buttonOk.Location = new System.Drawing.Point(13, 264);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.Size = new System.Drawing.Size(213, 25);
             this.buttonOk.TabIndex = 18;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -209,9 +209,9 @@ namespace Hagyma
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(94, 266);
+            this.buttonCancel.Location = new System.Drawing.Point(232, 264);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(191, 25);
             this.buttonCancel.TabIndex = 19;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;

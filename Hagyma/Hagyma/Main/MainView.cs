@@ -36,6 +36,13 @@ namespace Hagyma
 
         public event MenuItemClicked htmlMenuItemClicked;
 
+        public event KeyDown textBoxPageKeyDown;
+        public event KeyDown textBoxCSSKeyDown;
+        public event KeyDown textBoxJSKeyDown;
+        public event KeyDown textBoxHTMLTemplateKeyDown;
+
+        public event KeyDown mainKeyDown;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -338,6 +345,11 @@ namespace Hagyma
                 _pages);
         }
 
+        public TreeNodeCollection getTreeViewPageNodes()
+        {
+            return this.treeViewPages.Nodes;
+        }
+
         public void displayCSS(
             string _css)
         {
@@ -508,6 +520,9 @@ namespace Hagyma
                 this.startTestServerClicked(
                     _sender,
                     _e);
+
+                this.disableStartTestserverToolStripMenuItem();
+                this.enableStopTestserverToolStripMenuItem();
             }
         }
 
@@ -520,6 +535,9 @@ namespace Hagyma
                 this.stopTestServerClicked(
                     _sender,
                     _e);
+
+                this.disableStopTestserverToolStripMenuItem();
+                this.enableStartTestserverToolStripMenuItem();
             }
         }
 
@@ -565,6 +583,116 @@ namespace Hagyma
         public void disableButtonSaveHTMLTemplate()
         {
             this.buttonSaveHTMLTemplate.Enabled = false;
+        }
+
+        private void textBoxPage_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxPageKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxCSS_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxCSSKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxJS_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxJSKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxHTMLTemplate_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxHTMLTemplateKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        public void tabPagePagesSetIndicatorUnsaved(
+            string _pageName,
+            int _pageId)
+        {
+            this.treeViewPages.SelectedNode.Text = _pageName + "*";
+        }
+        public void tabPagePagesSetIndicatorSaved(
+            string _pageName,
+            int _PageId)
+        {
+            this.treeViewPages.SelectedNode.Text = _pageName;
+        }
+        public void tabPagePagesSetIndicatorNotAllSaved()
+        {
+            this.tabPage1.Text = "Pages*";
+        }
+        public void tabPagePageSetIndicatorAllSaved()
+        {
+            this.tabPage1.Text = "Pages";
+        }
+
+        public void tabPageCSSSetIndicatorUnsaved()
+        {
+            this.tabPage2.Text = "CSS*";
+        }
+        public void tabPageCSSSetIndicatorSaved()
+        {
+            this.tabPage2.Text = "CSS";
+        }
+        public void tabPageJSSetIndicatorUnsaved()
+        {
+            this.tabPage3.Text = "JavaScript*";
+        }
+        public void tabPageJSSetIndicatorSaved()
+        {
+            this.tabPage3.Text = "JavaScript";
+        }
+        public void tabPageHTMLTemplateSetIndicatorUnsaved()
+        {
+            this.tabPage4.Text = "HTML template*";
+        }
+        public void tabPageHTMLTemplateSetIndicatorSaved()
+        {
+            this.tabPage4.Text = "HTML template";
+        }
+        public TreeNode getSelectedTreeNode()
+        {
+            return this.treeViewPages.SelectedNode;
+        }
+
+        private void tabControlEditor_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.mainKeyDown(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

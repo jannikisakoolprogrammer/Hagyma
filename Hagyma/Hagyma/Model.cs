@@ -217,6 +217,13 @@ namespace Hagyma
                 _pageId).GetValue(4).ToString();
         }
 
+        public string getPageName(
+            int _pageId)
+        {
+            return this.getProject().getPageById(
+                _pageId).GetValue(3).ToString();
+        }
+
         public void updateTempPageContent(
             int _pageId,
             string _content)
@@ -307,6 +314,43 @@ namespace Hagyma
         public void generate()
         {
             this.getProject().generate();
+        }
+
+        public bool checkPageExists(
+            string _pageName)
+        {
+            System.Collections.ArrayList pages = this.project.getPages();
+            System.Collections.IEnumerator pagesEnumerator = pages.GetEnumerator();
+
+            string existingPageName = "";
+            foreach (System.Object[] page in pages)
+            {
+                existingPageName = page.GetValue(3).ToString();
+                if (existingPageName == _pageName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool checkFileExists(
+            string _path)
+        {
+            System.Object[] files = this.getFileList();
+            foreach (string name in files)
+            {
+                string fname = System.IO.Path.GetFileName(
+                    _path);
+
+                if (name == fname)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+
         }
     }
 }

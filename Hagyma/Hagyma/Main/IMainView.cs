@@ -33,6 +33,13 @@ namespace Hagyma
 
         public event MenuItemClicked htmlMenuItemClicked;
 
+        public event KeyDown textBoxPageKeyDown;
+        public event KeyDown textBoxCSSKeyDown;
+        public event KeyDown textBoxJSKeyDown;
+        public event KeyDown textBoxHTMLTemplateKeyDown;
+
+        public event KeyDown mainKeyDown;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();
@@ -97,6 +104,7 @@ namespace Hagyma
         public void disableTextBoxPages();
         public void refreshPageTree(
             TreeNode[] _pages);
+        public TreeNodeCollection getTreeViewPageNodes();
         public void displayCSS(
             string _css);
         public string getCSS();
@@ -108,7 +116,22 @@ namespace Hagyma
         public void clearCSSTabPage();
         public void clearJSTabPage();
         public string textBoxPagesGetContent();
-        public void textBoxPagesSetContent(string _content);
+        public void textBoxPagesSetContent(
+            string _content);
 
+        public void tabPagePagesSetIndicatorUnsaved(
+            string _pageName,
+            int _pageId);
+        public void tabPagePagesSetIndicatorSaved(
+            string _pageName,
+            int _pageId);
+        public void tabPagePageSetIndicatorAllSaved();
+        public void tabPageCSSSetIndicatorUnsaved();
+        public void tabPageCSSSetIndicatorSaved();
+        public void tabPageJSSetIndicatorUnsaved();
+        public void tabPageJSSetIndicatorSaved();
+        public void tabPageHTMLTemplateSetIndicatorUnsaved();
+        public void tabPageHTMLTemplateSetIndicatorSaved();
+        public TreeNode getSelectedTreeNode();
     }
 }

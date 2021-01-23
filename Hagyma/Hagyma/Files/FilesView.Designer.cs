@@ -42,6 +42,7 @@ namespace Hagyma
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(220, 379);
             this.listBoxFiles.TabIndex = 0;
+            this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
             // buttonImport
             // 

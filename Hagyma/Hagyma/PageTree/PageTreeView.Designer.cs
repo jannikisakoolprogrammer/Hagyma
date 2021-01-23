@@ -43,6 +43,8 @@ namespace Hagyma
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(217, 414);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(
+                this.TreeView1_AfterSelect_Click);
             // 
             // buttonAdd
             // 
@@ -110,6 +112,11 @@ namespace Hagyma
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PageTreeView_FormClosed);
             this.ResumeLayout(false);
 
+        }
+
+        private void TreeView1_AfterSelect(object sender, System.Windows.Forms.TreeViewEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion

@@ -54,5 +54,13 @@ namespace Hagyma
                     _e);
             }
         }
+
+        private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                String.Format(
+                    "resources/{0}",
+                    this.listBoxFiles.SelectedItem.ToString()));
+        }
     }
 }

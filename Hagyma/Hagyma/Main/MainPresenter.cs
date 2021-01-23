@@ -60,6 +60,13 @@ namespace Hagyma
             this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
             this.view.htmlMenuItemClicked += this.on_htmlMenuItemClick;
+
+            this.view.textBoxPageKeyDown += this.on_textBoxPageKeyDownClick;
+            this.view.textBoxCSSKeyDown += this.on_textBoxCSSKeyDownClick;
+            this.view.textBoxJSKeyDown += this.on_textBoxJSKeyDownClick;
+            this.view.textBoxHTMLTemplateKeyDown += this.on_textBoxHTMLTemplateKeyDownClick;
+            this.view.mainKeyDown += this.on_mainKeyDown;
+
         }
 
         /// <summary>
@@ -204,11 +211,9 @@ namespace Hagyma
             this.view.enableSaveButtonPages();
             this.view.enableSettingsToolStripMenuItem();
             this.view.enableStartTestserverToolStripMenuItem();
-            this.view.enableStopTestserverToolStripMenuItem();
             this.view.enableTabControlEditor();
             this.view.enableTextBoxCSS();
             this.view.enableTextBoxJS();
-            this.view.enableTextBoxPages();
             this.view.enableTreeViewPages();
             this.view.enableUploadToolStripMenuItem();
 
@@ -238,11 +243,18 @@ namespace Hagyma
 
         protected void loadPages()
         {
+            this.view.disableTextBoxPages();
+            System.Collections.Generic.List<int> unsavedPagesIds = this.getUnsavedPagesIds();
+
             this.resetPageId();
             this.view.clearPagesTabPage();
             this.getPageStructureData();
             this.preparePageStructureData();
             this.updatePageTree();
+
+            this.setIndicatorUnsavedPages(
+                unsavedPagesIds);
+
         }
 
         protected void resetPageId()
@@ -304,6 +316,7 @@ namespace Hagyma
             string css = this.view.getCSS();
             this.model.setCSS(css);
             this.model.writeCSS();
+            this.view.tabPageCSSSetIndicatorSaved();
         }
 
 
@@ -312,6 +325,7 @@ namespace Hagyma
             string js = this.view.getJS();
             this.model.setJS(js);
             this.model.writeJS();
+            this.view.tabPageJSSetIndicatorSaved();
         }
 
         protected void saveHTML()
@@ -319,6 +333,7 @@ namespace Hagyma
             string html = this.view.getHTML();
             this.model.setHTML(html);
             this.model.writeHTML();
+            this.view.tabPageHTMLTemplateSetIndicatorSaved();
         }
 
         public void on_buttonSaveCSSClick(
@@ -339,6 +354,8 @@ namespace Hagyma
             object _sender,
             TreeViewEventArgs _e)
         {
+            this.view.enableTextBoxPages();
+
             // Save previous page before we open new page.
             if (this.pageId != -1)
             {
@@ -373,6 +390,16 @@ namespace Hagyma
             EventArgs _e)
         {
             this.savePage();
+            string pageName = this.model.getPageName(
+                 this.pageId);
+            this.view.tabPagePagesSetIndicatorSaved(
+                pageName,
+                this.pageId);
+            bool allPagesSaved = this.checkAllPagesSaved();
+            if (allPagesSaved == true)
+            {
+                this.view.tabPagePageSetIndicatorAllSaved();
+            }
         }
 
         protected void savePage()
@@ -467,6 +494,191 @@ namespace Hagyma
             EventArgs _e)
         {
             this.saveHTML();
+        }
+
+        public void on_textBoxPageKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.savePage();
+                        string pageName = this.model.getPageName(
+                            this.pageId);
+                        this.view.tabPagePagesSetIndicatorSaved(
+                            pageName,
+                            this.pageId);
+                        bool allPagesSaved = this.checkAllPagesSaved();
+                        if (allPagesSaved == true)
+                        {
+                            this.view.tabPagePageSetIndicatorAllSaved();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                TreeNode treeNode = this.view.getSelectedTreeNode();
+                if (treeNode.Text.Contains("*") == false)
+                {
+                    string pageName = this.model.getPageName(
+                        this.pageId);
+                    this.view.tabPagePagesSetIndicatorUnsaved(
+                        pageName,
+                        this.pageId);
+                    this.view.tabPagePagesSetIndicatorNotAllSaved();
+                }
+            }
+        }
+
+        public void on_textBoxCSSKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveCSS();
+                        this.view.tabPageCSSSetIndicatorSaved();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                this.view.tabPageCSSSetIndicatorUnsaved();
+            }
+        }
+
+        public void on_textBoxJSKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveJS();
+                        this.view.tabPageJSSetIndicatorSaved();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                this.view.tabPageJSSetIndicatorUnsaved();
+            }
+        }
+
+        public void on_textBoxHTMLTemplateKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveHTML();
+                        this.view.tabPageHTMLTemplateSetIndicatorSaved();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                this.view.tabPageHTMLTemplateSetIndicatorUnsaved();
+            }
+        }
+
+        protected Boolean checkAllPagesSaved()
+        {
+            TreeNodeCollection treeNodeCollectionPage = this.view.getTreeViewPageNodes();
+            System.Collections.IEnumerator treeNodeEnumerator = treeNodeCollectionPage.GetEnumerator();
+            while (treeNodeEnumerator.MoveNext())
+            {
+                TreeNode treeNode = (TreeNode)treeNodeEnumerator.Current;
+                if (treeNode.Text.Contains(
+                    "*") == true)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        protected System.Collections.Generic.List<int> getUnsavedPagesIds()
+        {
+            System.Collections.Generic.List<int> unsavedPagesIds = new System.Collections.Generic.List<int>();
+            TreeNodeCollection treeNodeCollectionPage = this.view.getTreeViewPageNodes();
+            System.Collections.IEnumerator treeNodeEnumerator = treeNodeCollectionPage.GetEnumerator();
+            while (treeNodeEnumerator.MoveNext())
+            {
+                TreeNode treeNode = (TreeNode)treeNodeEnumerator.Current;
+                if (treeNode.Text.Contains(
+                    "*") == true)
+                {
+                    unsavedPagesIds.Add(
+                        int.Parse(
+                            treeNode.Tag.ToString()));
+                }
+            }
+            return unsavedPagesIds;
+        }
+
+        protected void setIndicatorUnsavedPages(
+            System.Collections.Generic.List<int> _unsavedPagesIds)
+        {
+            TreeNodeCollection treeNodeCollectionPage = this.view.getTreeViewPageNodes();
+            System.Collections.IEnumerator treeNodeEnumerator = treeNodeCollectionPage.GetEnumerator();
+            while (treeNodeEnumerator.MoveNext())
+            {
+                TreeNode treeNode = (TreeNode)treeNodeEnumerator.Current;
+                int pageId = int.Parse(
+                    treeNode.Tag.ToString());
+
+                if (_unsavedPagesIds.Contains(
+                    pageId) == true)
+                {
+                    string pageName = this.model.getPageName(
+                        pageId);
+                    treeNode.Text = pageName + "*";
+                    this.view.tabPagePagesSetIndicatorNotAllSaved();
+                }
+            }
+        }
+
+        protected void on_mainKeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.G:
+                        this.model.generate();
+                        break;
+                    case Keys.U:
+                        this.on_uploadClick(
+                            null,
+                            new EventArgs());
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

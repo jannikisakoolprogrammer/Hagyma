@@ -940,5 +940,15 @@ namespace Hagyma
         {
             return this.dirPathResources;
         }
+
+        public int getLowestSortId()
+        {
+            return 1;
+        }
+
+        public int getHighestSortId()
+        {
+            return this.getPages().Count;
+        }
     }
 }
