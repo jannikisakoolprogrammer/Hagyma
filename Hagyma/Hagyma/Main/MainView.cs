@@ -343,6 +343,11 @@ namespace Hagyma
                 _pages);
         }
 
+        public TreeNodeCollection getTreeViewPageNodes()
+        {
+            return this.treeViewPages.Nodes;
+        }
+
         public void displayCSS(
             string _css)
         {
@@ -624,6 +629,56 @@ namespace Hagyma
                     _sender,
                     _e);
             }
+        }
+
+        public void tabPagePagesSetIndicatorUnsaved(
+            string _pageName,
+            int _pageId)
+        {
+            this.treeViewPages.SelectedNode.Text = _pageName + "*";
+        }
+        public void tabPagePagesSetIndicatorSaved(
+            string _pageName,
+            int _PageId)
+        {
+            this.treeViewPages.SelectedNode.Text = _pageName;
+        }
+        public void tabPagePagesSetIndicatorNotAllSaved()
+        {
+            this.tabPage1.Text = "Pages*";
+        }
+        public void tabPagePageSetIndicatorAllSaved()
+        {
+            this.tabPage1.Text = "Pages";
+        }
+
+        public void tabPageCSSSetIndicatorUnsaved()
+        {
+            this.tabPage2.Text = "CSS*";
+        }
+        public void tabPageCSSSetIndicatorSaved()
+        {
+            this.tabPage2.Text = "CSS";
+        }
+        public void tabPageJSSetIndicatorUnsaved()
+        {
+            this.tabPage3.Text = "JavaScript*";
+        }
+        public void tabPageJSSetIndicatorSaved()
+        {
+            this.tabPage3.Text = "JavaScript";
+        }
+        public void tabPageHTMLTemplateSetIndicatorUnsaved()
+        {
+            this.tabPage4.Text = "HTML template*";
+        }
+        public void tabPageHTMLTemplateSetIndicatorSaved()
+        {
+            this.tabPage4.Text = "HTML template";
+        }
+        public TreeNode getSelectedTreeNode()
+        {
+            return this.treeViewPages.SelectedNode;
         }
     }
 }

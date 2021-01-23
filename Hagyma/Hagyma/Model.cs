@@ -217,6 +217,13 @@ namespace Hagyma
                 _pageId).GetValue(4).ToString();
         }
 
+        public string getPageName(
+            int _pageId)
+        {
+            return this.getProject().getPageById(
+                _pageId).GetValue(3).ToString();
+        }
+
         public void updateTempPageContent(
             int _pageId,
             string _content)
