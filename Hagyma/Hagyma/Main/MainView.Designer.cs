@@ -300,6 +300,7 @@ namespace Hagyma
             this.tabControlEditor.SelectedIndex = 0;
             this.tabControlEditor.Size = new System.Drawing.Size(760, 526);
             this.tabControlEditor.TabIndex = 7;
+            this.tabControlEditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControlEditor_KeyDown);
             // 
             // tabPage1
             // 

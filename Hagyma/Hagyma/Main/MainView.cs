@@ -41,6 +41,8 @@ namespace Hagyma
         public event KeyDown textBoxJSKeyDown;
         public event KeyDown textBoxHTMLTemplateKeyDown;
 
+        public event KeyDown mainKeyDown;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -679,6 +681,18 @@ namespace Hagyma
         public TreeNode getSelectedTreeNode()
         {
             return this.treeViewPages.SelectedNode;
+        }
+
+        private void tabControlEditor_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.mainKeyDown(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

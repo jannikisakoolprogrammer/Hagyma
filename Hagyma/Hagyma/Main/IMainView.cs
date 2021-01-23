@@ -38,6 +38,8 @@ namespace Hagyma
         public event KeyDown textBoxJSKeyDown;
         public event KeyDown textBoxHTMLTemplateKeyDown;
 
+        public event KeyDown mainKeyDown;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();

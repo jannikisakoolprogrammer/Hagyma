@@ -65,6 +65,7 @@ namespace Hagyma
             this.view.textBoxCSSKeyDown += this.on_textBoxCSSKeyDownClick;
             this.view.textBoxJSKeyDown += this.on_textBoxJSKeyDownClick;
             this.view.textBoxHTMLTemplateKeyDown += this.on_textBoxHTMLTemplateKeyDownClick;
+            this.view.mainKeyDown += this.on_mainKeyDown;
 
         }
 
@@ -654,6 +655,23 @@ namespace Hagyma
                         pageId);
                     treeNode.Text = pageName + "*";
                     this.view.tabPagePagesSetIndicatorNotAllSaved();
+                }
+            }
+        }
+
+        protected void on_mainKeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.G:
+                        this.model.generate();
+                        break;
+                    default:
+                        break;
                 }
             }
         }
