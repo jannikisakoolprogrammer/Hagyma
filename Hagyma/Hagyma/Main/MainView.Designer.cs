@@ -87,6 +87,7 @@ namespace Hagyma
             // 
             // textBoxPage
             // 
+            this.textBoxPage.AcceptsTab = true;
             this.textBoxPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -337,6 +338,7 @@ namespace Hagyma
             // 
             // textBoxCSS
             // 
+            this.textBoxCSS.AcceptsTab = true;
             this.textBoxCSS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -363,6 +365,7 @@ namespace Hagyma
             // 
             // textBoxJS
             // 
+            this.textBoxJS.AcceptsTab = true;
             this.textBoxJS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -399,6 +402,7 @@ namespace Hagyma
             // 
             // textBoxHTMLTemplate
             // 
+            this.textBoxHTMLTemplate.AcceptsTab = true;
             this.textBoxHTMLTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
