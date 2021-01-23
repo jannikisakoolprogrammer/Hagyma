@@ -98,6 +98,7 @@ namespace Hagyma
             this.textBoxPage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxPage.Size = new System.Drawing.Size(507, 271);
             this.textBoxPage.TabIndex = 5;
+            this.textBoxPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPage_KeyDown);
             // 
             // buttonSavePage
             // 
@@ -346,6 +347,7 @@ namespace Hagyma
             this.textBoxCSS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxCSS.Size = new System.Drawing.Size(661, 267);
             this.textBoxCSS.TabIndex = 1;
+            this.textBoxCSS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCSS_KeyDown);
             // 
             // tabPage3
             // 
@@ -371,6 +373,7 @@ namespace Hagyma
             this.textBoxJS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxJS.Size = new System.Drawing.Size(661, 267);
             this.textBoxJS.TabIndex = 1;
+            this.textBoxJS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxJS_KeyDown);
             // 
             // buttonSaveJS
             // 
@@ -406,6 +409,7 @@ namespace Hagyma
             this.textBoxHTMLTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxHTMLTemplate.Size = new System.Drawing.Size(661, 277);
             this.textBoxHTMLTemplate.TabIndex = 1;
+            this.textBoxHTMLTemplate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHTMLTemplate_KeyDown);
             // 
             // buttonSaveHTMLTemplate
             // 
@@ -426,10 +430,7 @@ namespace Hagyma
             this.Controls.Add(this.menuStrip2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewMain";
-            this.Text = string.Format(
-                "{0} - Release {1}",
-                Constants.name,
-                Constants.release);
+            this.Text = "Hagyma - Release 20210117";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabControlEditor.ResumeLayout(false);

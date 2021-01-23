@@ -30,4 +30,8 @@ namespace Hagyma
     public delegate void TreeNodeClickedAfter(
         object _sender,
         TreeViewEventArgs _e);
+
+    public delegate void KeyDown(
+        object _sender,
+        KeyEventArgs _e);
 }

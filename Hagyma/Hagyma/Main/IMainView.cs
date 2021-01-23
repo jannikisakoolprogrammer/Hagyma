@@ -33,6 +33,11 @@ namespace Hagyma
 
         public event MenuItemClicked htmlMenuItemClicked;
 
+        public event KeyDown textBoxPageKeyDown;
+        public event KeyDown textBoxCSSKeyDown;
+        public event KeyDown textBoxJSKeyDown;
+        public event KeyDown textBoxHTMLTemplateKeyDown;
+
         public void enableEditToolStripMenuItem();
         public void disableEditToolStripMenuItem();
         public void enableCutToolStripMenuItem();

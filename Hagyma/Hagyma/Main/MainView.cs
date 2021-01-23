@@ -36,6 +36,11 @@ namespace Hagyma
 
         public event MenuItemClicked htmlMenuItemClicked;
 
+        public event KeyDown textBoxPageKeyDown;
+        public event KeyDown textBoxCSSKeyDown;
+        public event KeyDown textBoxJSKeyDown;
+        public event KeyDown textBoxHTMLTemplateKeyDown;
+
         public ViewMain()
         {
             InitializeComponent();
@@ -571,6 +576,54 @@ namespace Hagyma
         public void disableButtonSaveHTMLTemplate()
         {
             this.buttonSaveHTMLTemplate.Enabled = false;
+        }
+
+        private void textBoxPage_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxPageKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxCSS_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxCSSKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxJS_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxJSKeyDown(
+                    _sender,
+                    _e);
+            }
+        }
+
+        private void textBoxHTMLTemplate_KeyDown(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_sender != null)
+            {
+                this.textBoxHTMLTemplateKeyDown(
+                    _sender,
+                    _e);
+            }
         }
     }
 }

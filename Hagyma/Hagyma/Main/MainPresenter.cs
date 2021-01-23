@@ -60,6 +60,12 @@ namespace Hagyma
             this.view.stopTestServerClicked += this.on_stopTestServerClick;
 
             this.view.htmlMenuItemClicked += this.on_htmlMenuItemClick;
+
+            this.view.textBoxPageKeyDown += this.on_textBoxPageKeyDownClick;
+            this.view.textBoxCSSKeyDown += this.on_textBoxCSSKeyDownClick;
+            this.view.textBoxJSKeyDown += this.on_textBoxJSKeyDownClick;
+            this.view.textBoxHTMLTemplateKeyDown += this.on_textBoxHTMLTemplateKeyDownClick;
+
         }
 
         /// <summary>
@@ -466,6 +472,74 @@ namespace Hagyma
             EventArgs _e)
         {
             this.saveHTML();
+        }
+
+        public void on_textBoxPageKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.savePage();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public void on_textBoxCSSKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveCSS();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public void on_textBoxJSKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveJS();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public void on_textBoxHTMLTemplateKeyDownClick(
+            object _sender,
+            KeyEventArgs _e)
+        {
+            if (_e.Control == true)
+            {
+                switch (_e.KeyCode)
+                {
+                    case Keys.S:
+                        this.saveHTML();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
