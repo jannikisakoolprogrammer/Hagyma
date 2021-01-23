@@ -78,10 +78,10 @@ namespace Hagyma
             this.treeViewPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewPages.Location = new System.Drawing.Point(3, 34);
+            this.treeViewPages.Location = new System.Drawing.Point(4, 34);
             this.treeViewPages.Margin = new System.Windows.Forms.Padding(2);
             this.treeViewPages.Name = "treeViewPages";
-            this.treeViewPages.Size = new System.Drawing.Size(227, 455);
+            this.treeViewPages.Size = new System.Drawing.Size(227, 451);
             this.treeViewPages.TabIndex = 4;
             this.treeViewPages.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPages_AfterSelect);
             // 
@@ -97,7 +97,7 @@ namespace Hagyma
             this.textBoxPage.Multiline = true;
             this.textBoxPage.Name = "textBoxPage";
             this.textBoxPage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPage.Size = new System.Drawing.Size(507, 455);
+            this.textBoxPage.Size = new System.Drawing.Size(516, 451);
             this.textBoxPage.TabIndex = 5;
             this.textBoxPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPage_KeyDown);
             // 
@@ -266,8 +266,8 @@ namespace Hagyma
             // htmlMenuItem
             // 
             this.htmlMenuItem.Name = "htmlMenuItem";
-            this.htmlMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.htmlMenuItem.Text = "HTML";
+            this.htmlMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.htmlMenuItem.Text = "Online help";
             this.htmlMenuItem.Click += new System.EventHandler(this.htmlMenuItem_Click);
             // 
             // menuStrip2

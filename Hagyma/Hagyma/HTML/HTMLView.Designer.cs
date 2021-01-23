@@ -29,24 +29,26 @@ namespace Hagyma
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxHTML = new System.Windows.Forms.TextBox();
+            this.linkLabelOnlineHelp = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // textBoxHTML
+            // linkLabelOnlineHelp
             // 
-            this.textBoxHTML.Enabled = false;
-            this.textBoxHTML.Location = new System.Drawing.Point(13, 13);
-            this.textBoxHTML.Multiline = true;
-            this.textBoxHTML.Name = "textBoxHTML";
-            this.textBoxHTML.Size = new System.Drawing.Size(485, 346);
-            this.textBoxHTML.TabIndex = 0;
+            this.linkLabelOnlineHelp.AutoSize = true;
+            this.linkLabelOnlineHelp.Location = new System.Drawing.Point(13, 13);
+            this.linkLabelOnlineHelp.Name = "linkLabelOnlineHelp";
+            this.linkLabelOnlineHelp.Size = new System.Drawing.Size(68, 15);
+            this.linkLabelOnlineHelp.TabIndex = 0;
+            this.linkLabelOnlineHelp.TabStop = true;
+            this.linkLabelOnlineHelp.Text = "Online help";
+            this.linkLabelOnlineHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOnlineHelp_LinkClicked);
             // 
             // HTMLView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 371);
-            this.Controls.Add(this.textBoxHTML);
+            this.ClientSize = new System.Drawing.Size(221, 92);
+            this.Controls.Add(this.linkLabelOnlineHelp);
             this.Name = "HTMLView";
             this.Text = "HTML";
             this.ResumeLayout(false);
@@ -56,6 +58,6 @@ namespace Hagyma
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxHTML;
+        private System.Windows.Forms.LinkLabel linkLabelOnlineHelp;
     }
 }

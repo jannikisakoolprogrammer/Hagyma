@@ -18,7 +18,15 @@ namespace Hagyma
         public void setHTMLTemplate(
             string _htmlTemplate)
         {
-            this.textBoxHTML.Text = _htmlTemplate;
+        }
+
+        private void linkLabelOnlineHelp_LinkClicked(
+            object _sender,
+            LinkLabelLinkClickedEventArgs _e)
+        {
+            System.Diagnostics.Process.Start(
+                "explorer.exe",
+                "https://www.merelyajourneytowardslivingoutside.info/SOFTWARE/TOOLS/HAGYMA/#help");
         }
     }
 }
