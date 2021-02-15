@@ -381,7 +381,7 @@ namespace Hagyma
                 _newPageName);
             command.Parameters.AddWithValue(
                 "@content",
-                "");
+                row[4]);
             command.Parameters.AddWithValue(
                 "@id",
                 _pageID);
