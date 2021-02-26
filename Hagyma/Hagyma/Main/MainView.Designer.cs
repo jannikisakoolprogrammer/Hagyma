@@ -78,10 +78,10 @@ namespace Hagyma
             this.treeViewPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewPages.Location = new System.Drawing.Point(4, 34);
-            this.treeViewPages.Margin = new System.Windows.Forms.Padding(2);
+            this.treeViewPages.Location = new System.Drawing.Point(5, 45);
+            this.treeViewPages.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.treeViewPages.Name = "treeViewPages";
-            this.treeViewPages.Size = new System.Drawing.Size(227, 451);
+            this.treeViewPages.Size = new System.Drawing.Size(259, 600);
             this.treeViewPages.TabIndex = 4;
             this.treeViewPages.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPages_AfterSelect);
             // 
@@ -92,20 +92,21 @@ namespace Hagyma
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPage.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPage.Location = new System.Drawing.Point(234, 34);
-            this.textBoxPage.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPage.Location = new System.Drawing.Point(267, 45);
+            this.textBoxPage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxPage.Multiline = true;
             this.textBoxPage.Name = "textBoxPage";
             this.textBoxPage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPage.Size = new System.Drawing.Size(516, 451);
+            this.textBoxPage.Size = new System.Drawing.Size(589, 600);
             this.textBoxPage.TabIndex = 5;
             this.textBoxPage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPage_KeyDown);
             // 
             // buttonSavePage
             // 
-            this.buttonSavePage.Location = new System.Drawing.Point(4, 4);
+            this.buttonSavePage.Location = new System.Drawing.Point(5, 5);
+            this.buttonSavePage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSavePage.Name = "buttonSavePage";
-            this.buttonSavePage.Size = new System.Drawing.Size(148, 23);
+            this.buttonSavePage.Size = new System.Drawing.Size(169, 31);
             this.buttonSavePage.TabIndex = 6;
             this.buttonSavePage.Text = "Save";
             this.buttonSavePage.UseVisualStyleBackColor = true;
@@ -119,34 +120,34 @@ namespace Hagyma
             this.closeProjectToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newProjectToolStripMenuItem
             // 
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.newProjectToolStripMenuItem.Text = "New project";
             this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
             // 
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.openProjectToolStripMenuItem.Text = "Open project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.openProjectToolStripMenuItem_Click);
             // 
             // closeProjectToolStripMenuItem
             // 
             this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.closeProjectToolStripMenuItem.Text = "Close project";
             this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.closeProjectToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -158,31 +159,31 @@ namespace Hagyma
             this.pasteToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // projectToolStripMenuItem
@@ -192,27 +193,27 @@ namespace Hagyma
             this.filesToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.projectToolStripMenuItem.Text = "Project";
             // 
             // pageTreeToolStripMenuItem
             // 
             this.pageTreeToolStripMenuItem.Name = "pageTreeToolStripMenuItem";
-            this.pageTreeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.pageTreeToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.pageTreeToolStripMenuItem.Text = "Page tree";
             this.pageTreeToolStripMenuItem.Click += new System.EventHandler(this.pageTreeToolStripMenuItem_Click);
             // 
             // filesToolStripMenuItem
             // 
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
-            this.filesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.filesToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.filesToolStripMenuItem.Text = "Files";
             this.filesToolStripMenuItem.Click += new System.EventHandler(this.filesToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -224,34 +225,34 @@ namespace Hagyma
             this.startTestserverToolStripMenuItem,
             this.stopTestserverToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
             // generateToolStripMenuItem
             // 
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
-            this.generateToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.generateToolStripMenuItem.Text = "Generate";
             this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
             // uploadToolStripMenuItem
             // 
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
-            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.uploadToolStripMenuItem.Text = "Upload";
             this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
             // 
             // startTestserverToolStripMenuItem
             // 
             this.startTestserverToolStripMenuItem.Name = "startTestserverToolStripMenuItem";
-            this.startTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.startTestserverToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.startTestserverToolStripMenuItem.Text = "Start testserver";
             this.startTestserverToolStripMenuItem.Click += new System.EventHandler(this.startTestserverToolStripMenuItem_Click);
             // 
             // stopTestserverToolStripMenuItem
             // 
             this.stopTestserverToolStripMenuItem.Name = "stopTestserverToolStripMenuItem";
-            this.stopTestserverToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.stopTestserverToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.stopTestserverToolStripMenuItem.Text = "Stop testserver";
             this.stopTestserverToolStripMenuItem.Click += new System.EventHandler(this.stopTestserverToolStripMenuItem_Click);
             // 
@@ -260,13 +261,13 @@ namespace Hagyma
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.htmlMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // htmlMenuItem
             // 
             this.htmlMenuItem.Name = "htmlMenuItem";
-            this.htmlMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.htmlMenuItem.Size = new System.Drawing.Size(168, 26);
             this.htmlMenuItem.Text = "Online help";
             this.htmlMenuItem.Click += new System.EventHandler(this.htmlMenuItem_Click);
             // 
@@ -281,8 +282,8 @@ namespace Hagyma
             this.helpToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuStrip2.Size = new System.Drawing.Size(896, 30);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -295,10 +296,11 @@ namespace Hagyma
             this.tabControlEditor.Controls.Add(this.tabPage2);
             this.tabControlEditor.Controls.Add(this.tabPage3);
             this.tabControlEditor.Controls.Add(this.tabPage4);
-            this.tabControlEditor.Location = new System.Drawing.Point(12, 27);
+            this.tabControlEditor.Location = new System.Drawing.Point(14, 36);
+            this.tabControlEditor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControlEditor.Name = "tabControlEditor";
             this.tabControlEditor.SelectedIndex = 0;
-            this.tabControlEditor.Size = new System.Drawing.Size(760, 526);
+            this.tabControlEditor.Size = new System.Drawing.Size(869, 701);
             this.tabControlEditor.TabIndex = 7;
             this.tabControlEditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControlEditor_KeyDown);
             // 
@@ -307,10 +309,11 @@ namespace Hagyma
             this.tabPage1.Controls.Add(this.buttonSavePage);
             this.tabPage1.Controls.Add(this.textBoxPage);
             this.tabPage1.Controls.Add(this.treeViewPages);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(752, 498);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(861, 668);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pages";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -319,19 +322,21 @@ namespace Hagyma
             // 
             this.tabPage2.Controls.Add(this.buttonSaveCSS);
             this.tabPage2.Controls.Add(this.textBoxCSS);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(752, 498);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(861, 668);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CSS";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // buttonSaveCSS
             // 
-            this.buttonSaveCSS.Location = new System.Drawing.Point(4, 4);
+            this.buttonSaveCSS.Location = new System.Drawing.Point(5, 5);
+            this.buttonSaveCSS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSaveCSS.Name = "buttonSaveCSS";
-            this.buttonSaveCSS.Size = new System.Drawing.Size(148, 23);
+            this.buttonSaveCSS.Size = new System.Drawing.Size(169, 31);
             this.buttonSaveCSS.TabIndex = 2;
             this.buttonSaveCSS.Text = "Save";
             this.buttonSaveCSS.UseVisualStyleBackColor = true;
@@ -344,11 +349,12 @@ namespace Hagyma
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCSS.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxCSS.Location = new System.Drawing.Point(4, 34);
+            this.textBoxCSS.Location = new System.Drawing.Point(5, 45);
+            this.textBoxCSS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxCSS.Multiline = true;
             this.textBoxCSS.Name = "textBoxCSS";
             this.textBoxCSS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxCSS.Size = new System.Drawing.Size(745, 451);
+            this.textBoxCSS.Size = new System.Drawing.Size(851, 600);
             this.textBoxCSS.TabIndex = 1;
             this.textBoxCSS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCSS_KeyDown);
             // 
@@ -356,10 +362,11 @@ namespace Hagyma
             // 
             this.tabPage3.Controls.Add(this.textBoxJS);
             this.tabPage3.Controls.Add(this.buttonSaveJS);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(752, 498);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Size = new System.Drawing.Size(861, 668);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "JavaScript";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -371,19 +378,21 @@ namespace Hagyma
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxJS.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxJS.Location = new System.Drawing.Point(4, 34);
+            this.textBoxJS.Location = new System.Drawing.Point(5, 45);
+            this.textBoxJS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxJS.Multiline = true;
             this.textBoxJS.Name = "textBoxJS";
             this.textBoxJS.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxJS.Size = new System.Drawing.Size(745, 451);
+            this.textBoxJS.Size = new System.Drawing.Size(851, 600);
             this.textBoxJS.TabIndex = 1;
             this.textBoxJS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxJS_KeyDown);
             // 
             // buttonSaveJS
             // 
-            this.buttonSaveJS.Location = new System.Drawing.Point(4, 4);
+            this.buttonSaveJS.Location = new System.Drawing.Point(5, 5);
+            this.buttonSaveJS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSaveJS.Name = "buttonSaveJS";
-            this.buttonSaveJS.Size = new System.Drawing.Size(148, 23);
+            this.buttonSaveJS.Size = new System.Drawing.Size(169, 31);
             this.buttonSaveJS.TabIndex = 0;
             this.buttonSaveJS.Text = "Save";
             this.buttonSaveJS.UseVisualStyleBackColor = true;
@@ -393,10 +402,11 @@ namespace Hagyma
             // 
             this.tabPage4.Controls.Add(this.textBoxHTMLTemplate);
             this.tabPage4.Controls.Add(this.buttonSaveHTMLTemplate);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(752, 498);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage4.Size = new System.Drawing.Size(861, 668);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "HTML template";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -408,19 +418,21 @@ namespace Hagyma
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxHTMLTemplate.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxHTMLTemplate.Location = new System.Drawing.Point(4, 34);
+            this.textBoxHTMLTemplate.Location = new System.Drawing.Point(5, 45);
+            this.textBoxHTMLTemplate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxHTMLTemplate.Multiline = true;
             this.textBoxHTMLTemplate.Name = "textBoxHTMLTemplate";
             this.textBoxHTMLTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxHTMLTemplate.Size = new System.Drawing.Size(745, 461);
+            this.textBoxHTMLTemplate.Size = new System.Drawing.Size(851, 613);
             this.textBoxHTMLTemplate.TabIndex = 1;
             this.textBoxHTMLTemplate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHTMLTemplate_KeyDown);
             // 
             // buttonSaveHTMLTemplate
             // 
-            this.buttonSaveHTMLTemplate.Location = new System.Drawing.Point(4, 4);
+            this.buttonSaveHTMLTemplate.Location = new System.Drawing.Point(5, 5);
+            this.buttonSaveHTMLTemplate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSaveHTMLTemplate.Name = "buttonSaveHTMLTemplate";
-            this.buttonSaveHTMLTemplate.Size = new System.Drawing.Size(148, 23);
+            this.buttonSaveHTMLTemplate.Size = new System.Drawing.Size(169, 31);
             this.buttonSaveHTMLTemplate.TabIndex = 0;
             this.buttonSaveHTMLTemplate.Text = "Save";
             this.buttonSaveHTMLTemplate.UseVisualStyleBackColor = true;
@@ -428,14 +440,14 @@ namespace Hagyma
             // 
             // ViewMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(896, 748);
             this.Controls.Add(this.tabControlEditor);
             this.Controls.Add(this.menuStrip2);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ViewMain";
-            this.Text = "Hagyma - Release 20210123";
+            this.Text = "Hagyma - Release 20210226";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabControlEditor.ResumeLayout(false);
